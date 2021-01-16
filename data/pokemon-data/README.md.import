@@ -1,0 +1,10 @@
+[remap]
+
+importer="pokemon.importer"
+valid=false
+
+[deps]
+
+source_file="res://data/pokemon-data/README.md"
+[params]
+

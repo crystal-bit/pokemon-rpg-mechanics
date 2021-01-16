@@ -8,15 +8,37 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "BattlePokemon",
+"language": "GDScript",
+"path": "res://scenes/pokemon/pokemon.gd"
+}, {
+"base": "Resource",
+"class": "PokemonResource",
+"language": "GDScript",
+"path": "res://resources/pokemon-resource.gd"
+}, {
+"base": "Resource",
+"class": "PokemonResourceDynamic",
+"language": "GDScript",
+"path": "res://resources/pokemon-resource-dynamic.gd"
+} ]
 _global_script_class_icons={
-
+"BattlePokemon": "",
+"PokemonResource": "",
+"PokemonResourceDynamic": ""
 }
 
 [application]
 
 config/name="pokemon-gdr"
-config/icon="res://assets/icon.png"
+run/main_scene="res://scenes/main.tscn"
+config/icon="res://assets/pokemon-sprites/4.png"
+
+[autoload]
+
+PokemonLoader="*res://autoload/pokemon-loader.gd"
 
 [rendering]
 
