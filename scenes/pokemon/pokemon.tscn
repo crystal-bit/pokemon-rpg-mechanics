@@ -4,6 +4,22 @@
 
 [node name="Pokemon" type="Node2D"]
 script = ExtResource( 1 )
-pokemon_id = 150
 
 [node name="Sprite" type="Sprite" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 59.0
+margin_top = -61.0
+margin_right = 192.0
+margin_bottom = 3.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 126.0
+margin_bottom = 57.0

@@ -5,10 +5,11 @@ var bulbasaur = PokemonResourceDynamic.new({
 	"level": 30,
 	"pokemon_id": 0,
 	"effort_values": 10,
+	"experience": 0,
 })
 
 var game_save = {
-	"captured_pokemon": [
+	"captured_pokemons": [
 		bulbasaur
 	]
 }

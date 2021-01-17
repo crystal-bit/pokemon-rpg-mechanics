@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 const TEXTURES_PATH = "res://assets/pokemon-sprites/%s.png"
 var entries = []
@@ -30,23 +30,3 @@ func _load_pokemon_resources_from_csv(csv_filepath):
 		line_idx += 1
 	file.close()
 	return pokemon_resources
-
-
-#func create_pokemons():
-#	var node = self
-#	var Pokev2 = preload("res://poke-v3/poke-v3.tscn")
-#	var i = 0
-#	var pokemon_per_row = 10
-#	var a_poke
-#	for entry in entries:
-#		if i > 150:
-#			continue
-#		var pk = Pokev2.instance()
-#		pk.poke_resource = entry
-#		node.add_child(pk)
-#		pk.name = entry.name
-#		pk.owner = self
-#		pk.position.x = 64 * (i % pokemon_per_row)
-#		pk.position.y = 64 * (floor(i / pokemon_per_row))
-#		a_poke = pk
-#		i += 1

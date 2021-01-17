@@ -24,21 +24,15 @@ enum POKEMON_TYPES {
 export(Texture) var texture
 export(POKEMON_TYPES) var type
 export(String) var name
-# base static stats
 export(int) var hp
+export(int) var id setget set_pokemon_id
 # TODO: other stats
 
 func _init(args = "") -> void:
-	print(args)
+	pass
 
-
-# func _init(poke_id) -> void:
-# 	_init_pokemon_data(poke_id)
-
-
-# func _init_pokemon_data(id):
-# 	var p = db.Pokemons.data[id]
-# 	self.hp = p.hp
-# 	type = p.type
-# 	name = p.name
-# 	texture = p.texture
+func set_pokemon_id(value):
+	if value >=0 and value <=150:
+		id = value
+	else:
+		print("Invalid pokemon id")
