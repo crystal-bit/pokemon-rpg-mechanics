@@ -10,6 +10,10 @@ func _init() -> void:
 	)
 
 
+func get_pokemon(poke_id: int) -> PokemonResource:
+	return entries[poke_id]
+
+
 func _load_pokemon_resources_from_csv(csv_filepath):
 	var pokemon_resources = []
 	var file = File.new()
@@ -22,6 +26,7 @@ func _load_pokemon_resources_from_csv(csv_filepath):
 			line_idx += 1
 			continue
 		var item_data = PokemonResource.new("")
+		item_data.id = int(line[0])
 		item_data.name = line[1]
 		item_data.type = line[2]
 		item_data.hp = line[5]

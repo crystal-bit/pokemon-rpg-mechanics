@@ -1,24 +1,29 @@
-# Pokemon data which changes over time.
-# Ideally this data is the one specific to each
-# player game.
-# EG: when a Pokemon wins a battle, he obtains experience.
-#
-# This is combined together with PokemonResource in
-# order to populate all Pokemon data.
+# Pokemon data which changes over time (=> dynamic).
+# EG: when Pokemon win a battle, they obtain exp.
 class_name PokemonResourceDynamic
 extends Resource
 
-var pokemon_id: int # used to load the correct PokemonResource
-var unique_id: int # each captured pokemon will have its own unique id
-var experience: int # current pokemon experience
-var level: int # current pokemon level
-var effort_values: int
+export var pokemon_resource_id: int # used to load the correct PokemonResource
+export var unique_id: int # each captured pokemon will have its own unique id
+export var experience: int # current pokemon experience
+export var level: int # current pokemon level
+export var effort_values: int
 # hp_ev ?
 # atk_ev ?
 
 func _init(data):
 	unique_id = data.unique_id
 	level = data.level
-	pokemon_id = data.pokemon_id
+	pokemon_resource_id = data.pokemon_resource_id
 	effort_values = data.effort_values
 	experience = data.experience
+	resource_name = _get_resource_name()
+
+
+func _get_resource_name():
+	var poke = PokemonLoader.get_pokemon(pokemon_resource_id)
+	return "PokemonResourceDynamic#%d - Lv.%s" % [unique_id, level]
+
+
+func _to_string() -> String:
+	return resource_name

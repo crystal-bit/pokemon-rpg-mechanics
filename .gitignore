@@ -1,5 +1,10 @@
+# game generated data
+player_data
+
 # godot
 .import
 
-# osx
+# Misc
 .DS_Store
+__MACOSX
+logs/

@@ -1,6 +1,6 @@
 # Pokemon RPG mechanics
 
-Argomenti vari da affrontare nel tutorial:
+## Argomenti
 
 1. Caricamento dati da file esterno
    1. Formato dati
@@ -13,26 +13,12 @@ Argomenti vari da affrontare nel tutorial:
    1. Export risorse
    2. Modifica di una risorsa dall'inspector
    3. Side effects ?
+   4. `func _to_string() -> String:` per migliore leggibilità
 
 ## Domande e dubbi che potrei approfondire
 
 - Che differenza c'è tra usare Resource e usare un altro tipo di file (csv,
   ConfigFile, ...)?
-
-## Funzionamento statistiche
-
-Da: https://bulbapedia.bulbagarden.net/wiki/Effort_values#Stat_experience
-
-> In Generations I and II, effort points given are equal to the base stats of the
-defeated Pokémon species.
-
-> The Pokémon data structure contains two EV bytes for each of the five stats
-> (HP, Attack, Defense, Speed and Special), starting at zero when caught and
-> with a maximum EV of 65535 for each stat.
-
-> When a Pokémon is defeated, its base stats are converted to effort points and
-> then added to the EVs. For example, defeating a Mew grants 100 effort points
-> to each EV.
 
 ## Glossario
 
@@ -57,6 +43,16 @@ La nomenclatura Base Stat è la più utilizzata anche se:
 
 - https://bulbapedia.bulbagarden.net/wiki/Effort_values#Stat_experience
 
+> In Generations I and II, effort points given are equal to the base stats of the
+defeated Pokémon species.
+
+> The Pokémon data structure contains two EV bytes for each of the five stats
+> (HP, Attack, Defense, Speed and Special), starting at zero when caught and
+> with a maximum EV of 65535 for each stat.
+
+> When a Pokémon is defeated, its base stats are converted to effort points and
+> then added to the EVs. For example, defeating a Mew grants 100 effort points
+> to each EV.
 
 ### Individual Values
 
@@ -67,7 +63,7 @@ La nomenclatura Base Stat è la più utilizzata anche se:
 - https://bulbapedia.bulbagarden.net/wiki/Statistic#In_Generations_I_and_II
 
 
-## Problemi da verificare
+## Problemi e quirk
 
 ### Risorse custom e inspector
 
@@ -76,7 +72,31 @@ inspector.
 
 UPDATE: ho scoperto che si tratta di un bug: https://github.com/godotengine/godot/issues/41442
 
+### File salvataggio non mostra i valori corretti dall'inspector dopo averlo salvato
+
+Spesso capita che l'inspector non mostri i valori corretti perché credo che
+le risorse vengano caricate solamente all'avvio.
+
+Se cambiamo il file della risorsa, bisogna riavviare Godot.
+
+Forse c'è un modo altenrativo per ricaricare le risorse ma non lo conosco.
+
 ## Documentazione e link utili
 
 - https://docs.godotengine.org/en/3.2/getting_started/workflow/best_practices/node_alternatives.html
 - https://docs.godotengine.org/en/3.2/getting_started/step_by_step/resources.html
+- JSON save file: https://docs.godotengine.org/en/stable/tutorials/io/saving_games.html
+---
+- GDQuest: [Godot Save Game Tutorial: Save and load using Resources](https://youtu.be/ML-hiNytIqE)
+
+## Semplificazioni
+
+Pokemon è un gioco molto complesso, per semplificare i tutorial ho deciso di
+fare delle assunzioni:
+
+- Unico file di salvataggio
+- Pokemon solo dalla prima generazione
+- Solo meccaniche di EV e IV (niente amicizia)
+- Solo gioco single player preso in considerazione (il gioco online
+   richiederebbe accorgimenti in più per garantire l'unicità dei Pokemon e la
+   loro validità)
