@@ -14,10 +14,10 @@ Argomenti vari da affrontare nel tutorial:
    2. Modifica di una risorsa dall'inspector
    3. Side effects ?
 
-## TODO
+## Domande e dubbi che potrei approfondire
 
-- [ ] Controlla EffortValue se è collegato a tutte le statistiche oppure se è
-  univoco per ogni stat.
+- Che differenza c'è tra usare Resource e usare un altro tipo di file (csv,
+  ConfigFile, ...)?
 
 ## Funzionamento statistiche
 
@@ -36,12 +36,16 @@ defeated Pokémon species.
 
 ## Glossario
 
-- [Base Stat](https://bulbapedia.bulbagarden.net/wiki/Base_stats)
-- [Effort Value](https://bulbapedia.bulbagarden.net/wiki/Effort_values#Stat_experience)
-- [Individual Values](https://bulbapedia.bulbagarden.net/wiki/Individual_values)
-- [Stat formula](https://bulbapedia.bulbagarden.net/wiki/Statistic#In_Generations_I_and_II)
+### Base Stat
 
-Note: 
+- https://bulbapedia.bulbagarden.net/wiki/Base_stats
+
+Statistiche che rappresentano la forza innata e di base di ogni Pokemon.
+Questi valori sono uguali per tutti i Pokemon con lo stesso `pokemon_id`
+(esempio: tutti i Pikachu condividono le stesse Base Stat di HP, Forza,
+Difesa, ...).
+
+La nomenclatura Base Stat è la più utilizzata anche se:
 
 > From Pokémon FireRed and LeafGreen to Pokémon Ultra Sun and Ultra Moon, EVs
 > were also officially referred as base stats in English (distinct from what
@@ -49,12 +53,28 @@ Note:
 > stats](https://bulbapedia.bulbagarden.net/wiki/Base_stats), which are instead
 > the stat-affecting values intrinsic to the Pokémon's species).
 
+### Effort Value
+
+- https://bulbapedia.bulbagarden.net/wiki/Effort_values#Stat_experience
+
+
+### Individual Values
+
+- https://bulbapedia.bulbagarden.net/wiki/Individual_values
+
+### Stat formula
+
+- https://bulbapedia.bulbagarden.net/wiki/Statistic#In_Generations_I_and_II
+
+
 ## Problemi da verificare
 
 ### Risorse custom e inspector
 
-Risorse custom inizializzate/assegnate a runtime non compaiono nel remote inspector
-Si tratta di un bug: https://github.com/godotengine/godot/issues/41442
+Risorse custom inizializzate/assegnate a runtime non compaiono nel remote
+inspector.
+
+UPDATE: ho scoperto che si tratta di un bug: https://github.com/godotengine/godot/issues/41442
 
 ## Documentazione e link utili
 
