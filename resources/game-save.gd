@@ -1,3 +1,4 @@
+class_name GameSave
 extends Resource
 
 const DEBUG_SAVE_FILE_DIR = "res://player_data/"
@@ -9,7 +10,7 @@ export var game_version: String = "1.0"
 export(Array) var captured_pokemons = []
 
 func get_captured_pokemon(idx) -> PokemonResourceDynamic:
-	if captured_pokemons.size == 0:
+	if captured_pokemons.size() == 0:
 		print("No captured pokemon")
 		return null
 	elif idx < 0 or idx >= captured_pokemons.size():

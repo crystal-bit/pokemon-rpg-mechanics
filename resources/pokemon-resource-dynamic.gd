@@ -10,7 +10,7 @@ export var level: int # current pokemon level
 export var effort_values: int
 # hp_ev ?
 # atk_ev ?
-export(Resource) var move_set = PokemonMoveSet.new() # :PokemonMoveSet
+export(Resource) var move_set
 
 
 func init(data):

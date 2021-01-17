@@ -1,12 +1,9 @@
 extends Node2D
 
-var GameSave
-
 var game_save
 
 
 func _init() -> void:
-	GameSave = load("res://resources/game-save.gd")
 	var f = File.new()
 	var save_file_path = GameSave.get_save_file_path()
 	if f.file_exists(save_file_path):
@@ -18,13 +15,7 @@ func _init() -> void:
 
 
 func _ready() -> void:
-	$Combat.call_deferred("init_pokemons")
-	return
-	var res: PokemonResourceDynamic = game_save.get_captured_pokemon(0)
-	var pokemon_resource_dynamic = res
-	var pokemon_resource = PokemonLoader.entries[res.pokemon_resource_id]
-#	$Sprite.texture = pokemon_resource.texture
-#	$PanelContainer.update_labels(pokemon_resource, pokemon_resource_dynamic)
+	$Combat.init_pokemons(game_save.get_captured_pokemon(0))
 
 
 func create_initial_save_file(path: String):
@@ -32,6 +23,7 @@ func create_initial_save_file(path: String):
 	d.make_dir_recursive(path)
 	game_save = GameSave.new()
 	var prd = PokemonResourceDynamic.new()
+	# add a defualt pokemon for debug purposes
 	prd.init({
 		"unique_id": 1,
 		"level": 30,
@@ -40,7 +32,8 @@ func create_initial_save_file(path: String):
 		"experience": 0,
 	})
 	game_save.captured_pokemons.append(prd)
-	var status = ResourceSaver.save(GameSave.get_save_file_path(), game_save, ResourceSaver.FLAG_BUNDLE_RESOURCES)
+	var status = ResourceSaver.save(GameSave.get_save_file_path(), game_save)
+#	var status = ResourceSaver.save(GameSave.get_save_file_path(), game_save, ResourceSaver.FLAG_BUNDLE_RESOURCES)
 	if status == OK:
 		print("GameSave saved")
 	else:

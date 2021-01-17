@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Resource",
+"class": "GameSave",
+"language": "GDScript",
+"path": "res://resources/game-save.gd"
+}, {
 "base": "Node2D",
 "class": "Pokemon",
 "language": "GDScript",
@@ -40,6 +45,7 @@ _global_script_classes=[ {
 "path": "res://resources/pokemon-types.gd"
 } ]
 _global_script_class_icons={
+"GameSave": "",
 "Pokemon": "",
 "PokemonMove": "",
 "PokemonMoveSet": "",

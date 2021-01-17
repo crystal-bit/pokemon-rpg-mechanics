@@ -15,8 +15,7 @@ func _ready() -> void:
 	position = Vector2(200, 200)
 
 
-func set_pokemon_resource_dynamic(res: PokemonResourceDynamic):
-	print(res)
+func set_pokemon_resource_dynamic(res):
 	pokemon_resource_dynamic = res
 	pokemon_resource = PokemonLoader.entries[res.pokemon_resource_id]
 	$Sprite.texture = pokemon_resource.texture

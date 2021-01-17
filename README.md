@@ -99,13 +99,13 @@ UPDATE: ho scoperto che si tratta di un bug: https://github.com/godotengine/godo
 Attualmente la gestione delle risorse in Godot sembra avere ancora alcune rough
 edges.
 
-Il consiglio è di evitare di creare delle _init() custom!
+Il consiglio è di evitare di creare delle funzioni _init() custom.
 
 Non so se l'errore sia nel passare i valori di default (probabilmente sì).
 
-Bug relativo: https://github.com/godotengine/godot/issues/13440
-
-> ERROR: GDScript::_create_instance: Condition ' r_error.error != Variant::CallError::CALL_OK ' is true
+Letture rilevanti:
+- https://godotengine.org/qa/56388/when-can-i-override-_init-with-non-optional-arguments
+- https://github.com/godotengine/godot/issues/13440
 
 ### GameSave (Resource): file salvataggio non mostra i valori corretti dall'inspector dopo averlo salvato
 

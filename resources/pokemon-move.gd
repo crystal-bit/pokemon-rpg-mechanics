@@ -14,5 +14,6 @@ var damage_class_id
 var effect_id
 var effect_chance
 
+
 func _to_string() -> String:
 	return "PokemonMove#%d - %s" % [id, name]
