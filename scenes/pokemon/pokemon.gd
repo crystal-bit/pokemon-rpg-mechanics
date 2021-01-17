@@ -16,6 +16,7 @@ func _ready() -> void:
 
 
 func set_pokemon_resource_dynamic(res: PokemonResourceDynamic):
+	print(res)
 	pokemon_resource_dynamic = res
 	pokemon_resource = PokemonLoader.entries[res.pokemon_resource_id]
 	$Sprite.texture = pokemon_resource.texture

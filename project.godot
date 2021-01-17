@@ -9,15 +9,20 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Resource",
-"class": "GameSave",
-"language": "GDScript",
-"path": "res://resources/game-save.gd"
-}, {
 "base": "Node2D",
 "class": "Pokemon",
 "language": "GDScript",
 "path": "res://scenes/pokemon/pokemon.gd"
+}, {
+"base": "Resource",
+"class": "PokemonMove",
+"language": "GDScript",
+"path": "res://resources/pokemon-move.gd"
+}, {
+"base": "Resource",
+"class": "PokemonMoveSet",
+"language": "GDScript",
+"path": "res://resources/pokemon-move-set.gd"
 }, {
 "base": "Resource",
 "class": "PokemonResource",
@@ -28,12 +33,19 @@ _global_script_classes=[ {
 "class": "PokemonResourceDynamic",
 "language": "GDScript",
 "path": "res://resources/pokemon-resource-dynamic.gd"
+}, {
+"base": "Resource",
+"class": "PokemonTypes",
+"language": "GDScript",
+"path": "res://resources/pokemon-types.gd"
 } ]
 _global_script_class_icons={
-"GameSave": "",
 "Pokemon": "",
+"PokemonMove": "",
+"PokemonMoveSet": "",
 "PokemonResource": "",
-"PokemonResourceDynamic": ""
+"PokemonResourceDynamic": "",
+"PokemonTypes": ""
 }
 
 [application]

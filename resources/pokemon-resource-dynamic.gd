@@ -10,8 +10,10 @@ export var level: int # current pokemon level
 export var effort_values: int
 # hp_ev ?
 # atk_ev ?
+export(Resource) var move_set = PokemonMoveSet.new() # :PokemonMoveSet
 
-func _init(data):
+
+func init(data):
 	unique_id = data.unique_id
 	level = data.level
 	pokemon_resource_id = data.pokemon_resource_id
@@ -21,7 +23,6 @@ func _init(data):
 
 
 func _get_resource_name():
-	var poke = PokemonLoader.get_pokemon(pokemon_resource_id)
 	return "PokemonResourceDynamic#%d - Lv.%s" % [unique_id, level]
 
 

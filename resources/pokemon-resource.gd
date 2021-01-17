@@ -4,37 +4,13 @@
 class_name PokemonResource
 extends Resource
 
-enum POKEMON_TYPES {
-	GRASS,
-	FIRE,
-	ROCK,
-	SAND,
-	WATER,
-	BUG,
-	NORMAL,
-	ELECTRIC,
-	POISON,
-	GROUND,
-	PSYCHIC,
-	ROCK,
-	FIGHTING,
-	ICE,
-	DRAGON,
-	FAIRY,
-	GHOST
-}
-
 # The pokedex number for the Pokemon
 export(int, 1, 151) var id setget set_pokemon_id
 export(Texture) var texture
-export(POKEMON_TYPES) var type
+export(PokemonTypes.POKEMON_TYPES) var type
 export(String) var name
 export(int) var hp
 # TODO: other stats
-
-
-func _init(_args = "") -> void:
-	pass
 
 
 func set_pokemon_id(value: int):
