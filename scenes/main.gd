@@ -10,7 +10,8 @@ func _init() -> void:
 		print("loading savefile")
 		game_save = load(save_file_path)
 	else:
-		print("creating savefile")
+		print("Creating save file")
+		game_save = GameSave.new()
 		create_initial_save_file(GameSave.get_save_dir_path())
 
 
@@ -21,7 +22,6 @@ func _ready() -> void:
 func create_initial_save_file(path: String):
 	var d = Directory.new()
 	d.make_dir_recursive(path)
-	game_save = GameSave.new()
 	var prd = PokemonResourceDynamic.new()
 	# add a defualt pokemon for debug purposes
 	prd.init({
@@ -39,3 +39,9 @@ func create_initial_save_file(path: String):
 	else:
 		print("Error while saving")
 		print(status)
+
+
+func _input(event):
+	if event is InputEventKey:
+		if event.scancode == KEY_R and event.pressed and !event.echo:
+			get_tree().reload_current_scene()

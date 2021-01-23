@@ -16,4 +16,4 @@ var effect_chance
 
 
 func _to_string() -> String:
-	return "PokemonMove#%d - %s" % [id, name]
+	return "%s" % [name]

@@ -20,6 +20,7 @@ func init(data):
 	effort_values = data.effort_values
 	experience = data.experience
 	resource_name = _get_resource_name()
+	move_set = PokemonMoveSet.new()
 
 
 func _get_resource_name():

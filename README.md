@@ -13,8 +13,9 @@
 4. Risorse
    1. Export risorse
    2. Modifica di una risorsa dall'inspector
-   3. Side effects ?
-   4. `func _to_string() -> String:` per migliore leggibilità
+   3. Side effects? Se una risorsa viene usata in posti diversi ed è la stessa 
+   istanza, tutte le reference verranno aggiornate.
+   1. `func _to_string() -> String:` per migliore leggibilità
 5. Salvataggio dati
    1. ResourceSaver
    2. `res://` vs `user://` (+ riconoscimento modalità debug)

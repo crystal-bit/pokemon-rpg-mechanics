@@ -8,6 +8,7 @@ func _input(event: InputEvent) -> void:
 
 
 func update_labels(pokemon_resource: PokemonResource, pokemon_resource_dynamic: PokemonResourceDynamic):
+	# add labels for pokemon resource data
 	var c := $VBoxContainer
 	var header = Label.new()
 	header.text = '--- ' + str(pokemon_resource)
@@ -20,6 +21,9 @@ func update_labels(pokemon_resource: PokemonResource, pokemon_resource_dynamic: 
 		l.text = p + ": " + str(pokemon_resource[p])
 		c.add_child(l)
 
+	# add labels for pokemon resource dynamic data
+	c.add_child(HSeparator.new())
+
 	var tmp = Label.new()
 	tmp.text = '--- ' + str(pokemon_resource_dynamic)
 	c.add_child(tmp)
@@ -31,3 +35,14 @@ func update_labels(pokemon_resource: PokemonResource, pokemon_resource_dynamic: 
 		var l = Label.new()
 		l.text = p + ": " + str(pokemon_resource_dynamic[p])
 		c.add_child(l)
+
+	# add labels for pokemon moves
+	c.add_child(HSeparator.new())
+	var prop: PokemonMoveSet = pokemon_resource_dynamic.move_set
+	var idx = 0
+	for move in prop.current_moves:
+		var l = Label.new()
+		l.text = "#%d: %s" % [idx, move]
+		c.add_child(l)
+		idx += 1
+	return
