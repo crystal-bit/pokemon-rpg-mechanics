@@ -1,5 +1,19 @@
 # Pokemon RPG mechanics
 
+## Meccaniche da implementare
+
+- [ ] Database Pokemon Generazione I
+  - [x] Tabella statistiche pokemon
+  - [x] Tabella mosse
+  - [ ] Tabella associativa tra pokemon e mosse iniziali
+  - [ ] Tabella associativa tra pokemon e mosse da sbloccare per ogni livello (https://gamefaqs.gamespot.com/gameboy/367023-pokemon-red-version/faqs/5764)
+  - [ ] Tabella evoluzioni: https://gamefaqs.gamespot.com/gameboy/367023-pokemon-red-version/faqs/5770
+- [ ] Salvataggio gioco
+  - [x] Salvataggio pokemon catturati
+  - [ ] Salvataggio statistiche pokemon catturati (EV, IV, exp, mosse sbloccate, ...)
+- [ ] Combattimento
+- [ ] Leveling up
+
 ## Argomenti
 
 1. Data driven (accenna ai vantaggi, spiegazione alla fine?)
@@ -40,107 +54,6 @@ Si ha la (de)serializzazione dei dati già implementata in Godot.
 - https://docs.godotengine.org/en/3.2/getting_started/step_by_step/resources.html#creating-your-own-resources
 - https://docs.godotengine.org/en/3.2/getting_started/workflow/best_practices/node_alternatives.html
 
-## Glossario
-
-### Base Stat
-
-- https://bulbapedia.bulbagarden.net/wiki/Base_stats
-
-Statistiche che rappresentano la forza innata e di base di ogni Pokemon.
-Questi valori sono uguali per tutti i Pokemon con lo stesso `pokemon_id`
-(esempio: tutti i Pikachu condividono le stesse Base Stat di HP, Forza,
-Difesa, ...).
-
-La nomenclatura Base Stat è la più utilizzata anche se:
-
-> From Pokémon FireRed and LeafGreen to Pokémon Ultra Sun and Ultra Moon, EVs
-> were also officially referred as base stats in English (distinct from what
-> fans refer to as [base
-> stats](https://bulbapedia.bulbagarden.net/wiki/Base_stats), which are instead
-> the stat-affecting values intrinsic to the Pokémon's species).
-
-### Effort Value
-
-- https://bulbapedia.bulbagarden.net/wiki/Effort_values#Stat_experience
-
-> In Generations I and II, effort points given are equal to the base stats of the
-defeated Pokémon species.
-
-> The Pokémon data structure contains two EV bytes for each of the five stats
-> (HP, Attack, Defense, Speed and Special), starting at zero when caught and
-> with a maximum EV of 65535 for each stat.
-
-> When a Pokémon is defeated, its base stats are converted to effort points and
-> then added to the EVs. For example, defeating a Mew grants 100 effort points
-> to each EV.
-
-### Individual Values
-
-- https://bulbapedia.bulbagarden.net/wiki/Individual_values
-
-### Stat formula
-
-- https://bulbapedia.bulbagarden.net/wiki/Statistic#In_Generations_I_and_II
-
-## Problemi e quirk
-
-In generale l'approccio con le risorse custom mi ha portato a scoprire diversi
-bug. Questi bug sono in parte evitabili ed inoltre dovrebbero essere
-risolti con un aggiornamento di Godot per il supporto first-class alle
-risorse custom:
-
-- [Add first-class custom resource support](https://github.com/godotengine/godot-proposals/issues/18)
-- [Allow exporting custom resources from/to any scripting language](https://github.com/godotengine/godot/pull/44879)
-- [Enable script class resource exports.](https://github.com/godotengine/godot/pull/32018)
-
-### Risorse custom e inspector
-
-Risorse custom inizializzate/assegnate a runtime non compaiono nel remote
-inspector.
-
-UPDATE: ho scoperto che si tratta di un bug: https://github.com/godotengine/godot/issues/41442
-
-### Problemi di caricamento del file di salvataggio
-
-Il consiglio è di evitare di creare delle funzioni `_init()` custom.
-
-Attualmente la gestione delle risorse in Godot sembra avere ancora alcune rough
-edges.
-
-Letture rilevanti:
-- https://godotengine.org/qa/56388/when-can-i-override-_init-with-non-optional-arguments
-- https://github.com/godotengine/godot/issues/13440
-
-### GameSave (Resource): file salvataggio non mostra i valori corretti dall'inspector dopo averlo salvato
-
-Spesso capita che l'inspector non mostri i valori corretti perché credo che
-le risorse vengano caricate solamente all'avvio.
-
-Se cambiamo il file della risorsa, bisogna riavviare Godot.
-
-Forse c'è un modo alternativo per ricaricare le risorse ma non lo conosco.
-
-### Bug: cancellare il file di salvataggio a runime e ricaricare la scena porta ad uno stato errato
-
-**Riprodurre bug**:
-
-- vai al commit 44826b4365edf2e12fdf0d37453aacb93d92f90f
-- avvia il gioco
-- il gioco crea un nuovo file di salvataggio automaticamente
-- premi il tasto `E`, il salvataggio di gioco verrà cancellato
-- premi il tasto `R`, il gioco verrà ricaricato a runtime
-- osserva il pannello di debug: le mosse del pokemon sono duplicate
-
-Probabilmente questo problema è causato dal caching delle risorse. Quello che
-mi capitava è che creando una nuova risorsa `GameSave.new()`  l'array dei
-pokemon era già inizializzato con un elemento. La stessa cosa per le mosse
-dei pokemon. Continuando l'esecuzione, il salvataggio vedeva la duplicazione
-di pokemon e mosse.
-
-Possibili bug collegati:
-
-- https://github.com/godotengine/godot/issues/30302
-
 ## Documentazione e link utili
 
 Save system:
@@ -154,7 +67,9 @@ Godot `Resource`:
 
 Pokemon datasets:
 
-- https://github.com/veekun/pokedex/tree/master/pokedex/data/csv
+- ⭐️ CSV: https://github.com/veekun/pokedex/tree/master/pokedex/data/csv
+- ⭐️ SQLite: https://github.com/decentralion/PokemonSQLTutorial
+- https://gamefaqs.gamespot.com/gameboy/367023-pokemon-red-version/faqs/5770
 - https://github.com/lgreski/pokemonData
 - https://www.kaggle.com/abcsds/pokemon
 
@@ -186,3 +101,7 @@ Gli argomenti importanti sono:
 - parsing di file CSV per inizializzare i dati del Pokedex (o database delle
   entità di gioco)
 - struttura di classi, nodi e risorse per inizializzare il combat system
+
+## Altre info
+
+Vedi cartella `./doc`

@@ -23,6 +23,14 @@ func get_move(move_id: int) -> PokemonMove:
 	return moves[move_id]
 
 
+func get_move_by_name(n) -> PokemonMove:
+	for m in moves:
+		if m.name == n:
+			return m
+	print("No move found with name %s" % n)
+	return moves[0]
+
+
 func _load_moves_from_csv(csv_filepath):
 	var _moves = []
 	var file = File.new()
@@ -54,7 +62,7 @@ func _load_moves_from_csv(csv_filepath):
 		el.damage_class_id = line[8]
 		el.effect_id = line[9]
 		el.effect_chance = line[10] # nullable
-		_moves.append(el)
+		_moves.push_back(el)
 		line_idx += 1
 	file.close()
 	return _moves

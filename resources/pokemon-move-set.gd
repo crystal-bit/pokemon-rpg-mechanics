@@ -5,11 +5,7 @@ export(Array) var current_moves = []
 
 
 func _init():
-	for i in range(4):
-		var empty_move = PokemonMove.new()
-		empty_move.id = -1
-		empty_move.name = 'Dummy move %d' % i
-		current_moves.push_front(empty_move)
+	pass
 
 
 func _to_string():

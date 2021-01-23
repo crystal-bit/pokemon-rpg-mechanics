@@ -2,24 +2,30 @@ extends Node2D
 
 var game_save
 
+var save_file_path = GameSave.get_save_file_path()
+var save_file_dir = GameSave.get_save_dir_path()
+
 
 func _init() -> void:
 	var f = File.new()
-	var save_file_path = GameSave.get_save_file_path()
 	if f.file_exists(save_file_path):
 		print("loading savefile")
-		game_save = load(save_file_path)
+		game_save = load_savefile()
 	else:
 		print("Creating save file")
-		game_save = GameSave.new()
-		create_initial_save_file(GameSave.get_save_dir_path())
+		game_save = create_savefile(save_file_dir)
 
 
 func _ready() -> void:
 	$Combat.init_pokemons(game_save.get_captured_pokemon(0))
 
 
-func create_initial_save_file(path: String):
+func load_savefile() -> GameSave:
+	return load(save_file_path) as GameSave
+
+
+func create_savefile(path: String) -> GameSave:
+	var save = GameSave.new()
 	var d = Directory.new()
 	d.make_dir_recursive(path)
 	var prd = PokemonResourceDynamic.new()
@@ -31,11 +37,11 @@ func create_initial_save_file(path: String):
 		"effort_values": 10,
 		"experience": 0,
 	})
-	game_save.captured_pokemons.append(prd)
-	var status = ResourceSaver.save(GameSave.get_save_file_path(), game_save)
-#	var status = ResourceSaver.save(GameSave.get_save_file_path(), game_save, ResourceSaver.FLAG_BUNDLE_RESOURCES)
+	save.captured_pokemons.append(prd)
+	var status = ResourceSaver.save(save_file_path, save)
 	if status == OK:
 		print("GameSave saved")
 	else:
 		print("Error while saving")
 		print(status)
+	return save

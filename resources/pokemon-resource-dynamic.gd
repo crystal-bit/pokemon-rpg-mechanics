@@ -20,7 +20,14 @@ func init(data):
 	effort_values = data.effort_values
 	experience = data.experience
 	resource_name = _get_resource_name()
-	move_set = PokemonMoveSet.new()
+	move_set = create_default_moveset()
+
+
+static func create_default_moveset():
+	var mset := PokemonMoveSet.new()
+	mset.current_moves.push_back(PokemonLoader.get_move_by_name('tackle'))
+	mset.current_moves.push_back(PokemonLoader.get_move_by_name('roar'))
+	return mset
 
 
 func _get_resource_name():
