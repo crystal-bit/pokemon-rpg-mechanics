@@ -39,9 +39,3 @@ func create_initial_save_file(path: String):
 	else:
 		print("Error while saving")
 		print(status)
-
-
-func _input(event):
-	if event is InputEventKey:
-		if event.scancode == KEY_R and event.pressed and !event.echo:
-			get_tree().reload_current_scene()

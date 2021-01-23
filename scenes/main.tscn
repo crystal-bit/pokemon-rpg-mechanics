@@ -13,6 +13,8 @@ func _input(event):
 			var dir = Directory.new()
 			dir.remove(GameSave.get_save_file_path())
 			show_text('Save file deleted')
+		if event.scancode == KEY_Q and event.pressed and !event.echo:
+			get_tree().quit()
 
 
 # TODO: make this an addon?
@@ -38,7 +40,7 @@ func show_text(text):
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="Combat" parent="." instance=ExtResource( 1 )]
-
-[node name="DeleteSaveOnE" type="Node" parent="."]
+[node name="KeyboardShortcuts" type="Node" parent="."]
 script = SubResource( 1 )
+
+[node name="Combat" parent="." instance=ExtResource( 1 )]
