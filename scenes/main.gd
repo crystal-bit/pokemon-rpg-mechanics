@@ -16,10 +16,6 @@ func _init() -> void:
 		game_save = create_savefile(save_file_dir)
 
 
-func _ready() -> void:
-	$Combat.init_pokemons(game_save.get_captured_pokemon(0))
-
-
 func load_savefile() -> GameSave:
 	return load(save_file_path) as GameSave
 

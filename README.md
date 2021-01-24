@@ -73,6 +73,10 @@ Pokemon datasets:
 - https://github.com/lgreski/pokemonData
 - https://www.kaggle.com/abcsds/pokemon
 
+Pokemon team builder:
+
+- https://play.pokemonshowdown.com/teambuilder
+
 ## Semplificazioni
 
 - Pokemon solo dalla prima generazione

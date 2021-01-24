@@ -1,5 +1,7 @@
 extends PanelContainer
 
+onready var c := $VBoxContainer
+
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
@@ -7,9 +9,14 @@ func _input(event: InputEvent) -> void:
 			visible = !visible
 
 
-func update_labels(pokemon_resource: PokemonResource, pokemon_resource_dynamic: PokemonResourceDynamic):
-	# add labels for pokemon resource data
-	var c := $VBoxContainer
+func clear():
+	for el in c.get_children():
+		el.queue_free()
+
+
+func add_poke_resource_labels(pokemon_resource):
+	clear()
+	yield(get_tree(), "idle_frame")
 	var header = Label.new()
 	header.text = '--- ' + str(pokemon_resource)
 	c.add_child(header)
@@ -21,13 +28,11 @@ func update_labels(pokemon_resource: PokemonResource, pokemon_resource_dynamic: 
 		l.text = p + ": " + str(pokemon_resource[p])
 		c.add_child(l)
 
-	# add labels for pokemon resource dynamic data
-	c.add_child(HSeparator.new())
 
+func add_poke_resource_dynamic_labels(pokemon_resource_dynamic):
 	var tmp = Label.new()
 	tmp.text = '--- ' + str(pokemon_resource_dynamic)
 	c.add_child(tmp)
-
 	for prop in pokemon_resource_dynamic.get_property_list():
 		var p = prop.name
 		if not p in ['experience', 'pokemon_unique_id', 'pokemon_id', 'level', 'effort_values']:
@@ -36,7 +41,8 @@ func update_labels(pokemon_resource: PokemonResource, pokemon_resource_dynamic: 
 		l.text = p + ": " + str(pokemon_resource_dynamic[p])
 		c.add_child(l)
 
-	# add labels for pokemon moves
+
+func add_pokemon_moves_labeles(pokemon_resource_dynamic):
 	c.add_child(HSeparator.new())
 	var prop: PokemonMoveSet = pokemon_resource_dynamic.move_set
 	var idx = 0
@@ -45,4 +51,10 @@ func update_labels(pokemon_resource: PokemonResource, pokemon_resource_dynamic: 
 		l.text = "#%d: %s" % [idx, move]
 		c.add_child(l)
 		idx += 1
-	return
+
+
+func update_labels(pokemon_resource: PokemonResource, pokemon_resource_dynamic: PokemonResourceDynamic):
+	add_poke_resource_labels(pokemon_resource)
+	c.add_child(HSeparator.new())
+	add_poke_resource_dynamic_labels(pokemon_resource_dynamic)
+	add_pokemon_moves_labeles(pokemon_resource_dynamic)

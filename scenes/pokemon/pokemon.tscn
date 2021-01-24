@@ -11,7 +11,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 4, 4 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 
 [node name="PanelContainer" parent="." instance=ExtResource( 2 )]
