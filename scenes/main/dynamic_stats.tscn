@@ -1,0 +1,97 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/main/dynamic_stats.gd" type="Script" id=1]
+
+[node name="DynamicStats" type="PanelContainer"]
+margin_right = 126.0
+margin_bottom = 56.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 195.0
+margin_bottom = 187.0
+custom_constants/separation = 10
+
+[node name="Header" type="Label" parent="VBoxContainer"]
+margin_right = 188.0
+margin_bottom = 14.0
+text = "PokemonResourceDynamic #"
+
+[node name="EV" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 24.0
+margin_right = 188.0
+margin_bottom = 48.0
+
+[node name="Label" type="Label" parent="VBoxContainer/EV"]
+margin_top = 5.0
+margin_right = 37.0
+margin_bottom = 19.0
+text = "HP EV"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/EV"]
+margin_left = 114.0
+margin_right = 188.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 74, 0 )
+size_flags_horizontal = 10
+
+[node name="PokeResourceId" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 58.0
+margin_right = 188.0
+margin_bottom = 82.0
+
+[node name="Label" type="Label" parent="VBoxContainer/PokeResourceId"]
+margin_top = 5.0
+margin_right = 103.0
+margin_bottom = 19.0
+text = "PokeResourceId"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/PokeResourceId"]
+margin_left = 114.0
+margin_right = 188.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 74, 0 )
+size_flags_horizontal = 10
+editable = false
+
+[node name="Level" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 92.0
+margin_right = 188.0
+margin_bottom = 116.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Level"]
+margin_top = 5.0
+margin_right = 34.0
+margin_bottom = 19.0
+text = "Level"
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/Level"]
+margin_left = 114.0
+margin_right = 188.0
+margin_bottom = 24.0
+size_flags_horizontal = 10
+min_value = 1.0
+value = 1.0
+
+[node name="Exp" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 126.0
+margin_right = 188.0
+margin_bottom = 150.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Exp"]
+margin_top = 5.0
+margin_right = 22.0
+margin_bottom = 19.0
+text = "Exp"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Exp"]
+margin_left = 114.0
+margin_right = 188.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 74, 0 )
+size_flags_horizontal = 10

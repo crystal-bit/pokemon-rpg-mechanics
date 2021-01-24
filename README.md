@@ -5,9 +5,9 @@
 - [ ] Database Pokemon Generazione I
   - [x] Tabella statistiche pokemon
   - [x] Tabella mosse
-  - [ ] Tabella associativa tra pokemon e mosse iniziali
-  - [ ] Tabella associativa tra pokemon e mosse da sbloccare per ogni livello (https://gamefaqs.gamespot.com/gameboy/367023-pokemon-red-version/faqs/5764)
-  - [ ] Tabella evoluzioni: https://gamefaqs.gamespot.com/gameboy/367023-pokemon-red-version/faqs/5770
+  - [ ] ? Tabella associativa tra pokemon e mosse iniziali
+  - [ ] ? Tabella associativa tra pokemon e mosse da sbloccare per ogni livello (https://gamefaqs.gamespot.com/gameboy/367023-pokemon-red-version/faqs/5764)
+  - [ ] ? Tabella evoluzioni: https://gamefaqs.gamespot.com/gameboy/367023-pokemon-red-version/faqs/5770
 - [ ] Salvataggio gioco
   - [x] Salvataggio pokemon catturati
   - [ ] Salvataggio statistiche pokemon catturati (EV, IV, exp, mosse sbloccate, ...)

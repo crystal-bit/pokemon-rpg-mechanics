@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/combat/combat.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/main.gd" type="Script" id=2]
 [ext_resource path="res://scenes/main/pokemon-entries.gd" type="Script" id=3]
 [ext_resource path="res://scenes/pokemon/debug_panel/debug_panel.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/VBoxContainer.gd" type="Script" id=5]
+[ext_resource path="res://scenes/main/StatsPanel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/main/dynamic_stats.tscn" type="PackedScene" id=7]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node
@@ -56,7 +57,7 @@ anchor_bottom = 1.0
 custom_constants/margin_right = 20
 custom_constants/margin_top = 30
 custom_constants/margin_left = 24
-custom_constants/margin_bottom = -12
+custom_constants/margin_bottom = 12
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -65,80 +66,70 @@ __meta__ = {
 margin_left = 24.0
 margin_top = 30.0
 margin_right = 1004.0
-margin_bottom = 612.0
+margin_bottom = 588.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
-margin_right = 67.0
-margin_bottom = 582.0
+[node name="Pokemons" type="PanelContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+margin_right = 200.0
+margin_bottom = 558.0
+rect_min_size = Vector2( 200, 0 )
+mouse_filter = 2
 
-[node name="Header" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer2"]
-margin_right = 67.0
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/Pokemons"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 193.0
+margin_bottom = 551.0
+mouse_filter = 2
+
+[node name="Header" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/Pokemons/VBoxContainer"]
+margin_right = 186.0
 margin_bottom = 14.0
+size_flags_vertical = 0
 text = "Pokemons"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/Pokemons/VBoxContainer"]
 margin_top = 18.0
-margin_right = 67.0
-margin_bottom = 518.0
+margin_right = 186.0
+margin_bottom = 544.0
 rect_min_size = Vector2( 0, 500 )
+size_flags_vertical = 3
 scroll_horizontal_enabled = false
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer2/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/Pokemons/VBoxContainer/ScrollContainer"]
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
-margin_left = 71.0
-margin_right = 297.0
-margin_bottom = 582.0
+[node name="PokemonResourcePanel" parent="CanvasLayer/MarginContainer/HBoxContainer" instance=ExtResource( 6 )]
+margin_left = 204.0
+margin_right = 398.0
+margin_bottom = 232.0
+size_flags_vertical = 0
 
-[node name="Header" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer3"]
-margin_right = 226.0
-margin_bottom = 14.0
-text = "Stats (Pokemon Resource Dynamic)"
+[node name="PokemonResourceDynamicPanel" parent="CanvasLayer/MarginContainer/HBoxContainer" instance=ExtResource( 7 )]
+margin_left = 402.0
+margin_right = 604.0
+margin_bottom = 164.0
+size_flags_vertical = 0
 
-[node name="Panel" type="Panel" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer3"]
-margin_top = 18.0
-margin_right = 226.0
-margin_bottom = 118.0
-rect_min_size = Vector2( 100, 100 )
+[node name="MovesPanel" type="PanelContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+margin_left = 608.0
+margin_right = 622.0
+margin_bottom = 558.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+[node name="FinalPokemon" parent="CanvasLayer/MarginContainer/HBoxContainer" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 780.0
+margin_top = 358.0
 margin_right = 980.0
-margin_bottom = 582.0
-grow_horizontal = 0
-rect_min_size = Vector2( 200, 0 )
+margin_bottom = 558.0
+rect_min_size = Vector2( 200, 200 )
 size_flags_horizontal = 10
-script = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Header" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
-margin_right = 200.0
-margin_bottom = 14.0
-text = "PokemonResource"
-
-[node name="PanelContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 4 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 0.0
-margin_top = 18.0
-margin_right = 200.0
-margin_bottom = 32.0
-
-[node name="PanelContainer2" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 4 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 0.0
-margin_top = 36.0
-margin_right = 200.0
-margin_bottom = 50.0
-[connection signal="pokemon_hovered" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer2/ScrollContainer" to="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer" method="_on_ScrollContainer_pokemon_hovered"]
-[connection signal="pokemon_selected" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer2/ScrollContainer" to="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer" method="_on_ScrollContainer_pokemon_selected"]
+size_flags_vertical = 10
+[connection signal="pokemon_selected" from="CanvasLayer/MarginContainer/HBoxContainer/Pokemons/VBoxContainer/ScrollContainer" to="CanvasLayer/MarginContainer/HBoxContainer/PokemonResourcePanel" method="_on_ScrollContainer_pokemon_selected"]
+[connection signal="pokemon_selected" from="CanvasLayer/MarginContainer/HBoxContainer/Pokemons/VBoxContainer/ScrollContainer" to="CanvasLayer/MarginContainer/HBoxContainer/PokemonResourceDynamicPanel" method="_on_ScrollContainer_pokemon_selected"]
