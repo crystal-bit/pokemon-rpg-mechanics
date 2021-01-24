@@ -50,7 +50,7 @@ func _load_moves_from_csv(csv_filepath):
 			continue
 
 		var el = PokemonMove.new()
-		el.id = int(line[0])
+		el.id = int(line[0]) - 1
 		el.name = line[1]
 		var type_id = int(line[2])
 		el.type = PokemonTypes.get_type_by_id(type_id)
@@ -80,7 +80,7 @@ func _load_pokemon_resources_from_csv(csv_filepath):
 			line_idx += 1
 			continue
 		var item_data = PokemonResource.new()
-		item_data.id = int(line[0])
+		item_data.id = int(line[0]) - 1
 		item_data.name = line[1]
 		item_data.type = line[2]
 		item_data.hp = line[5]

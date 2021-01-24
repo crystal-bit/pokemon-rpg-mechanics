@@ -1,7 +1,7 @@
-extends ScrollContainer
+extends Control
 
-onready var vbox = $VBoxContainer
-const poke_entry = preload("res://scenes/main/pokemon_entry.tscn")
+onready var vbox = $VBoxContainer/ScrollContainer/VBoxContainer
+const poke_entry = preload("res://scenes/screens/pokemon-creation-screen/pokemon_entry.tscn")
 
 signal pokemon_hovered()
 signal pokemon_selected()

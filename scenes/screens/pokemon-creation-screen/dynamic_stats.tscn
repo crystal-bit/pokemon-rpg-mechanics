@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://scenes/main/dynamic_stats.gd" type="Script" id=1]
+[ext_resource path="res://scenes/screens/pokemon-creation-screen/dynamic_stats.gd" type="Script" id=1]
 
 [node name="DynamicStats" type="PanelContainer"]
 margin_right = 126.0

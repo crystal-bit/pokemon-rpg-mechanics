@@ -10,5 +10,6 @@ func _init():
 
 func _to_string():
 	var s = ""
-	s = '%s, %s, %s, %s' % current_moves
+	for m in current_moves:
+		s += "%s " % m
 	return s

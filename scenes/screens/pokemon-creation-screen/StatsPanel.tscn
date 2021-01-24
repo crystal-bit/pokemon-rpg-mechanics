@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://scenes/main/stats-panel.gd" type="Script" id=1]
+[ext_resource path="res://scenes/screens/pokemon-creation-screen/stats-panel.gd" type="Script" id=1]
 
 [node name="StatsPanel" type="PanelContainer"]
 margin_right = 126.0

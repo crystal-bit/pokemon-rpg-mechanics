@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/screens/pokemon-creation-screen/dynamic_stats.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/screens/pokemon-creation-screen/moves-panel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/screens/pokemon-creation-screen/pokemon-creation-screen.gd" type="Script" id=3]
+[ext_resource path="res://scenes/screens/pokemon-creation-screen/pokemon-entries.gd" type="Script" id=4]
+[ext_resource path="res://scenes/pokemon/debug_panel/debug_panel.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/screens/pokemon-creation-screen/StatsPanel.tscn" type="PackedScene" id=9]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource( 3 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 30
+custom_constants/margin_left = 24
+custom_constants/margin_bottom = 12
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+margin_left = 24.0
+margin_top = 30.0
+margin_right = 1004.0
+margin_bottom = 588.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pokemons" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+margin_right = 200.0
+margin_bottom = 558.0
+rect_min_size = Vector2( 200, 0 )
+mouse_filter = 2
+script = ExtResource( 4 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Pokemons"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 193.0
+margin_bottom = 551.0
+mouse_filter = 2
+
+[node name="Header" type="Label" parent="MarginContainer/HBoxContainer/Pokemons/VBoxContainer"]
+margin_right = 186.0
+margin_bottom = 14.0
+size_flags_vertical = 0
+text = "Pokemons"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/Pokemons/VBoxContainer"]
+margin_top = 18.0
+margin_right = 186.0
+margin_bottom = 544.0
+rect_min_size = Vector2( 0, 500 )
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Pokemons/VBoxContainer/ScrollContainer"]
+
+[node name="PokemonResourcePanel" parent="MarginContainer/HBoxContainer" instance=ExtResource( 9 )]
+margin_left = 204.0
+margin_right = 398.0
+margin_bottom = 232.0
+size_flags_vertical = 0
+
+[node name="PokemonResourceDynamicPanel" parent="MarginContainer/HBoxContainer" instance=ExtResource( 1 )]
+margin_left = 402.0
+margin_right = 604.0
+margin_bottom = 164.0
+size_flags_vertical = 0
+
+[node name="MovesPanel" parent="MarginContainer/HBoxContainer" instance=ExtResource( 2 )]
+margin_right = 758.0
+rect_min_size = Vector2( 150, 0 )
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer"]
+margin_left = 900.0
+margin_right = 980.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 80, 60 )
+size_flags_horizontal = 10
+size_flags_vertical = 0
+text = "Save"
+
+[node name="FinalPokemon" parent="." instance=ExtResource( 8 )]
+margin_right = 200.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 200, 200 )
+size_flags_horizontal = 10
+size_flags_vertical = 10
+[connection signal="pokemon_selected" from="MarginContainer/HBoxContainer/Pokemons" to="MarginContainer/HBoxContainer/PokemonResourceDynamicPanel" method="_on_Pokemons_pokemon_selected"]
+[connection signal="pokemon_selected" from="MarginContainer/HBoxContainer/Pokemons" to="MarginContainer/HBoxContainer/PokemonResourcePanel" method="_on_Pokemons_pokemon_selected"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Button" to="." method="_on_Button_pressed"]

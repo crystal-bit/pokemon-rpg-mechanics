@@ -1,13 +1,12 @@
-extends PanelContainer
+extends PopupPanel
 
 onready var c := $VBoxContainer
 
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventKey:
-		if event.pressed and !event.echo and event.scancode == KEY_F1:
-			visible = !visible
-
+#func _input(event: InputEvent) -> void:
+#	if event is InputEventKey:
+#		if event.pressed and !event.echo and event.scancode == KEY_F1:
+#			visible = !visible
 
 func clear():
 	for el in c.get_children():
@@ -56,5 +55,11 @@ func add_pokemon_moves_labeles(pokemon_resource_dynamic):
 func update_labels(pokemon_resource: PokemonResource, pokemon_resource_dynamic: PokemonResourceDynamic):
 	add_poke_resource_labels(pokemon_resource)
 	c.add_child(HSeparator.new())
-	add_poke_resource_dynamic_labels(pokemon_resource_dynamic)
-	add_pokemon_moves_labeles(pokemon_resource_dynamic)
+	if pokemon_resource_dynamic:
+		add_poke_resource_dynamic_labels(pokemon_resource_dynamic)
+		add_pokemon_moves_labeles(pokemon_resource_dynamic)
+	popup_centered()
+
+
+func _on_ScrollContainer_pokemon_hovered(poke_res):
+	update_labels(poke_res, null)
