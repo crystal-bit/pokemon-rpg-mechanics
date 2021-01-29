@@ -12,6 +12,10 @@ func _unhandled_input(event):
 
 
 func _on_Button_pressed():
+	save_pokemon()
+
+
+func save_pokemon():
 	var save: GameSave = load(GameSave.get_save_file_path())
 
 	var poke_dyn_res: PokemonResourceDynamic = prd_panel.get_pokemon_resource_dynamic()

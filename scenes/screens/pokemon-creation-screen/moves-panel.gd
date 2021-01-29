@@ -39,4 +39,5 @@ func get_selected_moves():
 		if not b.toggle_mode:
 			continue
 		var m: PokemonMove = b.get_meta('pokemon_move')
+		moves.append(m)
 	return moves

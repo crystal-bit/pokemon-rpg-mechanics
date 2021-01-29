@@ -14,7 +14,7 @@ export(int) var hp
 
 
 func set_pokemon_id(value: int):
-	if value >=1 and value <=151:
+	if value >=0 and value <=150:
 		id = value
 	else:
 		print("Invalid pokemon id %d" % value)

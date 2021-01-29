@@ -36,7 +36,7 @@ Se cambiamo il file della risorsa, bisogna riavviare Godot.
 
 Forse c'è un modo alternativo per ricaricare le risorse ma non lo conosco.
 
-### Bug: cancellare il file di salvataggio a runime e ricaricare la scena porta ad uno stato errato
+### Bug: cancellare il file di salvataggio a runtime e ricaricare la scena porta ad uno stato errato
 
 **Riprodurre bug**:
 

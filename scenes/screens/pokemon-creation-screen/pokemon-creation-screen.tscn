@@ -24,15 +24,15 @@ __meta__ = {
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 margin_left = 24.0
 margin_top = 30.0
-margin_right = 1004.0
-margin_bottom = 588.0
+margin_right = 1260.0
+margin_bottom = 708.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Pokemons" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
 margin_right = 200.0
-margin_bottom = 558.0
+margin_bottom = 678.0
 rect_min_size = Vector2( 200, 0 )
 mouse_filter = 2
 script = ExtResource( 4 )
@@ -41,7 +41,7 @@ script = ExtResource( 4 )
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 193.0
-margin_bottom = 551.0
+margin_bottom = 671.0
 mouse_filter = 2
 
 [node name="Header" type="Label" parent="MarginContainer/HBoxContainer/Pokemons/VBoxContainer"]
@@ -53,7 +53,7 @@ text = "Pokemons"
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/Pokemons/VBoxContainer"]
 margin_top = 18.0
 margin_right = 186.0
-margin_bottom = 544.0
+margin_bottom = 664.0
 rect_min_size = Vector2( 0, 500 )
 size_flags_vertical = 3
 scroll_horizontal_enabled = false
@@ -77,11 +77,12 @@ size_flags_vertical = 0
 
 [node name="MovesPanel" parent="MarginContainer/HBoxContainer" instance=ExtResource( 2 )]
 margin_right = 758.0
+margin_bottom = 678.0
 rect_min_size = Vector2( 150, 0 )
 
 [node name="Button" type="Button" parent="MarginContainer/HBoxContainer"]
-margin_left = 900.0
-margin_right = 980.0
+margin_left = 1156.0
+margin_right = 1236.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 80, 60 )
 size_flags_horizontal = 10
@@ -94,7 +95,6 @@ margin_bottom = 200.0
 rect_min_size = Vector2( 200, 200 )
 size_flags_horizontal = 10
 size_flags_vertical = 10
-
-[connection signal="pokemon_selected" from="MarginContainer/HBoxContainer/Pokemons" to="MarginContainer/HBoxContainer/PokemonResourcePanel" method="_on_Pokemons_pokemon_selected"]
 [connection signal="pokemon_selected" from="MarginContainer/HBoxContainer/Pokemons" to="MarginContainer/HBoxContainer/PokemonResourceDynamicPanel" method="_on_Pokemons_pokemon_selected"]
+[connection signal="pokemon_selected" from="MarginContainer/HBoxContainer/Pokemons" to="MarginContainer/HBoxContainer/PokemonResourcePanel" method="_on_Pokemons_pokemon_selected"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Button" to="." method="_on_Button_pressed"]
