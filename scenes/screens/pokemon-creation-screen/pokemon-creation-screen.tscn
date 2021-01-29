@@ -94,6 +94,7 @@ margin_bottom = 200.0
 rect_min_size = Vector2( 200, 200 )
 size_flags_horizontal = 10
 size_flags_vertical = 10
-[connection signal="pokemon_selected" from="MarginContainer/HBoxContainer/Pokemons" to="MarginContainer/HBoxContainer/PokemonResourceDynamicPanel" method="_on_Pokemons_pokemon_selected"]
+
 [connection signal="pokemon_selected" from="MarginContainer/HBoxContainer/Pokemons" to="MarginContainer/HBoxContainer/PokemonResourcePanel" method="_on_Pokemons_pokemon_selected"]
+[connection signal="pokemon_selected" from="MarginContainer/HBoxContainer/Pokemons" to="MarginContainer/HBoxContainer/PokemonResourceDynamicPanel" method="_on_Pokemons_pokemon_selected"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Button" to="." method="_on_Button_pressed"]

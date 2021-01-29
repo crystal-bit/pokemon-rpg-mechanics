@@ -25,7 +25,8 @@ func _ready():
 		var p_preview = poke_preview.instance()
 		p_preview.setup(p)
 		current_pokemons.add_child(p_preview)
-
+	$PanelContainer.set_anchors_and_margins_preset(Control.PRESET_CENTER)
+	$PanelContainer.rect_position.y += 50
 
 func load_savefile() -> GameSave:
 	return load(save_file_path) as GameSave
