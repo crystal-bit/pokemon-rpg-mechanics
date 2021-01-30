@@ -15,7 +15,7 @@ __meta__ = {
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 187.0
-margin_bottom = 225.0
+margin_bottom = 293.0
 custom_constants/separation = 10
 __meta__ = {
 "_edit_use_anchors_": false
@@ -29,10 +29,52 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HP" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Type" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 24.0
 margin_right = 180.0
 margin_bottom = 48.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Type"]
+margin_top = 5.0
+margin_right = 30.0
+margin_bottom = 19.0
+text = "Type"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Type"]
+margin_left = 106.0
+margin_right = 180.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 74, 0 )
+size_flags_horizontal = 10
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Type2" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 58.0
+margin_right = 180.0
+margin_bottom = 82.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Type2"]
+margin_top = 5.0
+margin_right = 38.0
+margin_bottom = 19.0
+text = "Type2"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Type2"]
+margin_left = 106.0
+margin_right = 180.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 74, 0 )
+size_flags_horizontal = 10
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="HP" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 92.0
+margin_right = 180.0
+margin_bottom = 116.0
 
 [node name="Label" type="Label" parent="VBoxContainer/HP"]
 margin_top = 5.0
@@ -51,9 +93,9 @@ caret_blink = true
 caret_blink_speed = 0.5
 
 [node name="Attack" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 58.0
+margin_top = 126.0
 margin_right = 180.0
-margin_bottom = 82.0
+margin_bottom = 150.0
 
 [node name="Label" type="Label" parent="VBoxContainer/Attack"]
 margin_top = 5.0
@@ -72,9 +114,9 @@ caret_blink = true
 caret_blink_speed = 0.5
 
 [node name="Defense" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 92.0
+margin_top = 160.0
 margin_right = 180.0
-margin_bottom = 116.0
+margin_bottom = 184.0
 
 [node name="Label" type="Label" parent="VBoxContainer/Defense"]
 margin_top = 5.0
@@ -93,9 +135,9 @@ caret_blink = true
 caret_blink_speed = 0.5
 
 [node name="Speed" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 126.0
+margin_top = 194.0
 margin_right = 180.0
-margin_bottom = 150.0
+margin_bottom = 218.0
 
 [node name="Label" type="Label" parent="VBoxContainer/Speed"]
 margin_top = 5.0
@@ -114,9 +156,9 @@ caret_blink = true
 caret_blink_speed = 0.5
 
 [node name="Special Attack" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 160.0
+margin_top = 228.0
 margin_right = 180.0
-margin_bottom = 184.0
+margin_bottom = 252.0
 
 [node name="Label" type="Label" parent="VBoxContainer/Special Attack"]
 margin_top = 5.0
@@ -135,9 +177,9 @@ caret_blink = true
 caret_blink_speed = 0.5
 
 [node name="Special Defense" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 194.0
+margin_top = 262.0
 margin_right = 180.0
-margin_bottom = 218.0
+margin_bottom = 286.0
 
 [node name="Label" type="Label" parent="VBoxContainer/Special Defense"]
 margin_top = 5.0

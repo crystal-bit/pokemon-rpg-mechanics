@@ -83,7 +83,13 @@ func _load_pokemon_resources_from_csv(csv_filepath):
 		item_data.id = int(line[0]) - 1
 		item_data.name = line[1]
 		item_data.type = line[2]
+		item_data.type2 = line[3]
 		item_data.hp = line[5]
+		item_data.attack = line[6]
+		item_data.defense = line[7]
+		item_data.special_attack = line[8]
+		item_data.special_defense = line[9]
+		item_data.speed = line[10]
 		item_data.texture = load(TEXTURES_PATH % line_idx)
 		pokemon_resources.append(item_data)
 		line_idx += 1

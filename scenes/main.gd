@@ -23,14 +23,19 @@ func _init() -> void:
 func _ready():
 	for p in game_save.captured_pokemons:
 		p = p as PokemonResourceDynamic
-		print("moveset ", p.move_set.current_moves)
+		print("---", str(p))
 		var p_preview = poke_preview.instance()
 		p_preview.setup(p)
-
 		current_pokemons.add_child(p_preview)
+		p_preview.connect("mouse_entered", self, "_on_poke_preview_mouse_entered", [p])
 	$PanelContainer.set_anchors_and_margins_preset(Control.PRESET_CENTER)
 	$PanelContainer.rect_position.y += 70
 	$PanelContainer.rect_position.x = get_viewport().get_visible_rect().size.x / 2 - $PanelContainer.get_rect().size.x / 2
+
+
+func _on_poke_preview_mouse_entered(prd: PokemonResourceDynamic):
+	print(prd)
+	$DebugPopup.update_labels(prd)
 
 
 func load_savefile() -> GameSave:

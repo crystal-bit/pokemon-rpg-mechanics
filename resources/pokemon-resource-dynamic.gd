@@ -19,7 +19,6 @@ func init(data):
 	pokemon_resource_id = data.pokemon_resource_id
 	effort_values = data.effort_values
 	experience = data.experience
-	resource_name = _get_resource_name()
 	move_set = create_default_moveset()
 
 
@@ -30,9 +29,5 @@ static func create_default_moveset():
 	return mset
 
 
-func _get_resource_name():
-	return "PokemonResourceDynamic#%d - Lv.%s" % [unique_id, level]
-
-
 func _to_string() -> String:
-	return resource_name
+	return "PokemonResourceDynamic - Lv.%s" % [level]

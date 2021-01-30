@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/fonts/Ubuntu-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/main.gd" type="Script" id=2]
 [ext_resource path="res://assets/fonts/Ubuntu-Light.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://scenes/screens/main/loaded-data.gd" type="Script" id=4]
+[ext_resource path="res://scenes/pokemon/debug_panel/debug_panel.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 18
@@ -138,4 +139,8 @@ custom_fonts/font = SubResource( 5 )
 text = "Pokemon loaded:
 Moves loaded: "
 script = ExtResource( 4 )
+
+[node name="DebugPopup" parent="." instance=ExtResource( 5 )]
+visible = false
+
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_Button_pressed"]
