@@ -64,6 +64,7 @@ config/icon="res://assets/pokemon-sprites/4.png"
 
 PokemonLoader="*res://autoload/pokemon-csv-loader.gd"
 Bg="*res://scenes/bg/bg.tscn"
+Global="*res://autoload/global.gd"
 
 [display]
 

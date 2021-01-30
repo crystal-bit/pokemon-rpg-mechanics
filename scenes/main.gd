@@ -23,7 +23,6 @@ func _init() -> void:
 func _ready():
 	for p in game_save.captured_pokemons:
 		p = p as PokemonResourceDynamic
-		print("---", str(p))
 		var p_preview = poke_preview.instance()
 		p_preview.setup(p)
 		current_pokemons.add_child(p_preview)
@@ -34,7 +33,6 @@ func _ready():
 
 
 func _on_poke_preview_mouse_entered(prd: PokemonResourceDynamic):
-	print(prd)
 	$DebugPopup.update_labels(prd)
 
 
@@ -67,3 +65,9 @@ func create_savefile(path: String) -> GameSave:
 
 func _on_Button_pressed():
 	get_tree().change_scene("res://scenes/screens/pokemon-creation-screen/pokemon-creation-screen.tscn")
+
+
+func _on_Button2_pressed():
+	var new_scene = load("res://scenes/screens/battle/battle.tscn")
+	Global.data['game-save'] = game_save
+	get_tree().change_scene_to(new_scene)

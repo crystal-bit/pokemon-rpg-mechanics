@@ -6,7 +6,8 @@ extends Resource
 
 # The pokedex number for the Pokemon
 export(int, 1, 151) var id setget set_pokemon_id
-export(Texture) var texture
+export(Texture) var texture # TODO: rename it
+export(Texture) var back_texture
 export(PokemonTypes.POKEMON_TYPES) var type
 export(PokemonTypes.POKEMON_TYPES) var type2
 export(String) var name

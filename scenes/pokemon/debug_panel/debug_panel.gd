@@ -28,7 +28,6 @@ func add_poke_resource_dynamic_labels(pokemon_resource_dynamic: PokemonResourceD
 	tmp.text = '--- ' + str(pokemon_resource_dynamic)
 	c.add_child(tmp)
 	for prop in pokemon_resource_dynamic.get_property_list():
-		print(prop)
 		var p = prop.name
 		if not p in ['experience', 'pokemon_unique_id', 'pokemon_id', 'level', 'effort_values']:
 			continue

@@ -3,6 +3,7 @@
 extends Node
 
 const TEXTURES_PATH = "res://assets/pokemon-sprites/%s.png"
+const TEXTURES_BACK_PATH = "res://assets/pokemon-sprites/back/%s.png"
 const POKEDEX_CSV_PATH = "res://data/pokemon-data/gen01.csv"
 const MOVES_CSV_PATH = "res://data/pokemon-data/moves.csv"
 
@@ -91,6 +92,7 @@ func _load_pokemon_resources_from_csv(csv_filepath):
 		item_data.special_defense = line[9]
 		item_data.speed = line[10]
 		item_data.texture = load(TEXTURES_PATH % line_idx)
+		item_data.back_texture = load(TEXTURES_BACK_PATH % line_idx)
 		pokemon_resources.append(item_data)
 		line_idx += 1
 	file.close()

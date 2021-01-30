@@ -99,7 +99,6 @@ margin_top = 65.0
 margin_right = 162.0
 margin_bottom = 110.0
 rect_min_size = Vector2( 120, 45 )
-disabled = true
 text = "Start combat"
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
@@ -142,5 +141,5 @@ script = ExtResource( 4 )
 
 [node name="DebugPopup" parent="." instance=ExtResource( 5 )]
 visible = false
-
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_Button2_pressed"]
