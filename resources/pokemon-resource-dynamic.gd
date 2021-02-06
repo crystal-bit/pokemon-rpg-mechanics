@@ -6,20 +6,26 @@ extends Resource
 export var pokemon_resource_id: int # used to load the correct PokemonResource
 export var unique_id: int # each captured pokemon will have its own unique id
 export var experience: int # current pokemon experience
-export var level: int # current pokemon level
 export var effort_values: int
-# hp_ev ?
+# hp_ev ?#
 # atk_ev ?
 export(Resource) var move_set
 
 
 func init(data):
 	unique_id = data.unique_id
-	level = data.level
 	pokemon_resource_id = data.pokemon_resource_id
 	effort_values = data.effort_values
 	experience = data.experience
-	move_set = create_default_moveset()
+	# move_set = create_default_moveset()
+
+
+# https://bulbapedia.bulbagarden.net/wiki/Experience#Experience_at_each_level
+# Note: using Medium Fast (cubic) curve by default
+static func get_level(current_exp) -> int:
+	var new_exp = current_exp + 1 # adding one to avoid rounding issues
+	var l = pow(new_exp, 1.0 / 3.0)
+	return floor(l) as int
 
 
 static func create_default_moveset():
@@ -30,4 +36,4 @@ static func create_default_moveset():
 
 
 func _to_string() -> String:
-	return "PokemonResourceDynamic - Lv.%s" % [level]
+	return "PokemonResourceDynamic - Lv.%s" % [get_level(experience)]

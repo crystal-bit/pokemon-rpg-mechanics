@@ -79,10 +79,12 @@ Pokemon team builder:
 
 ## Semplificazioni
 
+
 - Pokemon solo dalla prima generazione
 - Unico file di salvataggio
 - Niente ottenimento delle abilità?
 - Niente evoluzione Pokemon?
+- Esperienza: tutti i pokemon hanno una curva di esperienza cubica (Medium fast)
 - Solo meccaniche di EV e IV (niente amicizia, natura, ecc.)
 - Solo gioco single player preso in considerazione
 

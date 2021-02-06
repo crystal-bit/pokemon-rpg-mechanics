@@ -3,9 +3,9 @@ extends PanelContainer
 var prd
 
 onready var poke_resource_id := $VBoxContainer/PokeResourceId/LineEdit
-onready var level := $VBoxContainer/Level/SpinBox
+onready var level := $VBoxContainer/Level/LineEdit
 onready var ev := $VBoxContainer/EV/LineEdit
-onready var experience := $VBoxContainer/Exp/LineEdit
+onready var experience := $VBoxContainer/Exp/HSlider
 onready var header := $VBoxContainer/Header
 var unique_id
 
@@ -14,18 +14,19 @@ func setup(data: PokemonResourceDynamic):
 	header.text = "PokemonResourceDynamic #%d" % data.unique_id
 	unique_id = data.unique_id
 	poke_resource_id.text = str(data.pokemon_resource_id)
-	level.value = data.level
 	ev.text = str(data.effort_values)
-	experience.text = str(data.experience)
+	experience.value = data.experience
 
 
 func get_pokemon_resource_dynamic():
 	var prd = PokemonResourceDynamic.new()
-	prd.unique_id = unique_id
-	prd.pokemon_resource_id = int(poke_resource_id.text)
-	prd.level = int(level.value)
-	prd.effort_values = int(ev.text)
-	prd.experience = int(experience.text)
+	prd.init({
+		unique_id = unique_id,
+		pokemon_resource_id = int(poke_resource_id.text),
+		effort_values = int(ev.text),
+		experience = int(experience.value),
+#		level = int(level.value),
+	})
 	return prd
 
 

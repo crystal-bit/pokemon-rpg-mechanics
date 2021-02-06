@@ -66,13 +66,13 @@ __meta__ = {
 [node name="PokemonResourcePanel" parent="MarginContainer/HBoxContainer" instance=ExtResource( 9 )]
 margin_left = 204.0
 margin_right = 398.0
-margin_bottom = 232.0
+margin_bottom = 300.0
 size_flags_vertical = 0
 
 [node name="PokemonResourceDynamicPanel" parent="MarginContainer/HBoxContainer" instance=ExtResource( 1 )]
 margin_left = 402.0
 margin_right = 604.0
-margin_bottom = 164.0
+margin_bottom = 190.0
 size_flags_vertical = 0
 
 [node name="MovesPanel" parent="MarginContainer/HBoxContainer" instance=ExtResource( 2 )]
@@ -95,7 +95,6 @@ margin_bottom = 200.0
 rect_min_size = Vector2( 200, 200 )
 size_flags_horizontal = 10
 size_flags_vertical = 10
-
 [connection signal="pokemon_selected" from="MarginContainer/HBoxContainer/Pokemons" to="MarginContainer/HBoxContainer/PokemonResourceDynamicPanel" method="_on_Pokemons_pokemon_selected"]
 [connection signal="pokemon_selected" from="MarginContainer/HBoxContainer/Pokemons" to="MarginContainer/HBoxContainer/PokemonResourcePanel" method="_on_Pokemons_pokemon_selected"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Button" to="." method="_on_Button_pressed"]
