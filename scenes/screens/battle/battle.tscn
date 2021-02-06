@@ -1,14 +1,16 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/screens/battle/panels-font.tres" type="DynamicFont" id=1]
-[ext_resource path="res://scenes/screens/battle/PanelManager.gd" type="Script" id=2]
+[ext_resource path="res://scenes/screens/battle/panel-manager.gd" type="Script" id=2]
 [ext_resource path="res://assets/arrow.png" type="Texture" id=3]
 [ext_resource path="res://scenes/screens/battle/action-select-panel/grid-container.gd" type="Script" id=4]
 [ext_resource path="res://scenes/screens/battle/battle.gd" type="Script" id=5]
 [ext_resource path="res://assets/pokemon-sprites/back/1.png" type="Texture" id=6]
 [ext_resource path="res://assets/pokemon-sprites/12.png" type="Texture" id=7]
+[ext_resource path="res://scenes/screens/battle/battle-ref.png" type="Texture" id=8]
+[ext_resource path="res://scenes/screens/battle/combat-stats-widget/combat-stats-wdiget.tscn" type="PackedScene" id=9]
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.843137, 0.87451, 0.878431, 1 )
 border_width_left = 12
 border_width_top = 12
@@ -28,6 +30,11 @@ script = ExtResource( 5 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="battle-ref" type="Sprite" parent="."]
+position = Vector2( 1880.19, 339.103 )
+scale = Vector2( 0.980894, 0.980894 )
+texture = ExtResource( 8 )
 
 [node name="PanelManager" type="CanvasLayer" parent="."]
 script = ExtResource( 2 )
@@ -69,7 +76,7 @@ margin_left = -636.46
 margin_top = -185.27
 margin_right = 2.53979
 margin_bottom = -1.27002
-custom_styles/panel = SubResource( 2 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -87,7 +94,7 @@ custom_constants/margin_bottom = 6
 [node name="GridContainer" type="GridContainer" parent="PanelManager/ActionSelectPanel/MarginContainer"]
 margin_left = 6.0
 margin_top = 6.0
-margin_right = 609.0
+margin_right = 608.0
 margin_bottom = 154.0
 columns = 2
 script = ExtResource( 4 )
@@ -199,6 +206,20 @@ custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
 text = "Run"
 uppercase = true
+
+[node name="CombatWidgets" type="CanvasLayer" parent="."]
+
+[node name="OpponentWidget" parent="CombatWidgets" instance=ExtResource( 9 )]
+margin_left = 130.043
+margin_top = 88.2469
+margin_right = -949.957
+margin_bottom = -574.753
+
+[node name="PlayerWidget" parent="CombatWidgets" instance=ExtResource( 9 )]
+margin_left = 790.118
+margin_top = 366.271
+margin_right = -289.882
+margin_bottom = -296.729
 
 [node name="Player" type="Sprite" parent="."]
 position = Vector2( 330.372, 442.698 )

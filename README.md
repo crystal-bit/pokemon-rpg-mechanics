@@ -56,6 +56,9 @@ Si ha la (de)serializzazione dei dati già implementata in Godot.
 
 ## Documentazione e link utili
 
+Gameplay Video:
+- https://www.youtube.com/watch?v=UE9qsxyzZx4
+
 Save system:
 
 - GDQuest: [Godot Save Game Tutorial: Save and load using Resources](https://youtu.be/ML-hiNytIqE)

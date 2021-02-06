@@ -7,6 +7,8 @@ var player_poke: PokemonResourceDynamic
 func _ready():
 	var game_save = Global.data.get('game-save')
 	setup(game_save.captured_pokemons[0], game_save.captured_pokemons[1])
+	$CombatWidgets/PlayerWidget.setup(player_poke)
+	$CombatWidgets/OpponentWidget.setup(opponent_poke)
 
 
 func setup(player: PokemonResourceDynamic, opponent: PokemonResourceDynamic):

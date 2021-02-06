@@ -26,3 +26,9 @@ func set_pokemon_resource_dynamic(res):
 	panel.update_labels(pokemon_resource, pokemon_resource_dynamic)
 	yield(get_tree(), "idle_frame")
 	panel.rect_position.y = -panel.get_rect().size.y / 2
+
+
+func attack(target: Pokemon):
+	target.pokemon_resource.hp
+	pass
+
