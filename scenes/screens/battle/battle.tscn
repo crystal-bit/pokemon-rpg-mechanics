@@ -32,6 +32,7 @@ __meta__ = {
 }
 
 [node name="battle-ref" type="Sprite" parent="."]
+visible = false
 position = Vector2( 1880.19, 339.103 )
 scale = Vector2( 0.980894, 0.980894 )
 texture = ExtResource( 8 )

@@ -7,7 +7,7 @@ const TEXTURES_BACK_PATH = "res://assets/pokemon-sprites/back/%s.png"
 const POKEDEX_CSV_PATH = "res://data/pokemon-data/gen01.csv"
 const MOVES_CSV_PATH = "res://data/pokemon-data/moves.csv"
 
-var entries = []
+var entries = [] # PokemonResource
 var moves = []
 
 

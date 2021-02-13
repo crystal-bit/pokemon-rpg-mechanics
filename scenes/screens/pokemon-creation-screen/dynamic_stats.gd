@@ -14,7 +14,7 @@ func setup(data: PokemonResourceDynamic):
 	header.text = "PokemonResourceDynamic #%d" % data.unique_id
 	unique_id = data.unique_id
 	poke_resource_id.text = str(data.pokemon_resource_id)
-	ev.text = str(data.effort_values)
+	ev.text = str(data.hp_ev)
 	experience.value = data.experience
 
 
@@ -23,7 +23,7 @@ func get_pokemon_resource_dynamic():
 	prd.init({
 		unique_id = unique_id,
 		pokemon_resource_id = int(poke_resource_id.text),
-		effort_values = int(ev.text),
+		hp_ev = int(ev.text),
 		experience = int(experience.value),
 #		level = int(level.value),
 	})

@@ -40,3 +40,4 @@ defeated Pokémon species.
 ### Stat formula
 
 - https://bulbapedia.bulbagarden.net/wiki/Statistic#In_Generations_I_and_II
+- Stats calculator: https://pycosites.com/pkmn/stat_gen1.php

@@ -1,12 +1,48 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/screens/battle/battle-ref.png" type="Texture" id=1]
 [ext_resource path="res://assets/hp.png" type="Texture" id=2]
 [ext_resource path="res://scenes/screens/battle/combat-stats-widget/combat-stats-wdiget.gd" type="Script" id=3]
+[ext_resource path="res://assets/fonts/Ubuntu-Medium.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://scenes/screens/battle/combat-stats-widget/debug.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=4]
+size = 14
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.4, 1, 0.678431, 1 )
+border_color = Color( 0.301961, 0.839216, 0.494118, 1 )
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.223529, 0.329412, 0.254902, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="DynamicFont" id=3]
+size = 14
+font_data = ExtResource( 4 )
 
 [node name="CombatStatsWidget" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = -1080.0
+margin_bottom = -663.0
 rect_scale = Vector2( 2, 2 )
 script = ExtResource( 3 )
 __meta__ = {
@@ -14,7 +50,6 @@ __meta__ = {
 }
 
 [node name="battle-ref" type="Sprite" parent="."]
-visible = false
 position = Vector2( 518.743, 139.484 )
 scale = Vector2( 0.53502, 0.53502 )
 texture = ExtResource( 1 )
@@ -51,22 +86,24 @@ __meta__ = {
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_right = 188.0
-margin_bottom = 14.0
+margin_bottom = 17.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Name" type="Label" parent="VBoxContainer/HBoxContainer"]
-margin_right = 78.0
-margin_bottom = 14.0
+margin_right = 83.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 4 )
 text = "EXEGGUTOR"
 
 [node name="Level" type="Label" parent="VBoxContainer/HBoxContainer"]
 margin_left = 158.0
 margin_right = 188.0
-margin_bottom = 14.0
+margin_bottom = 17.0
 grow_horizontal = 0
 size_flags_horizontal = 10
+custom_fonts/font = SubResource( 4 )
 text = "Lv60"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -74,9 +111,9 @@ __meta__ = {
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
 margin_left = 88.0
-margin_top = 18.0
+margin_top = 21.0
 margin_right = 188.0
-margin_bottom = 46.0
+margin_bottom = 47.0
 rect_min_size = Vector2( 100, 0 )
 size_flags_horizontal = 8
 
@@ -84,18 +121,46 @@ size_flags_horizontal = 8
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 93.0
-margin_bottom = 21.0
+margin_bottom = 19.0
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/HBoxContainer"]
 margin_right = 16.0
-margin_bottom = 14.0
+margin_bottom = 12.0
 texture = ExtResource( 2 )
 
-[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+[node name="HPProgressBar" type="ProgressBar" parent="VBoxContainer/PanelContainer/HBoxContainer"]
 margin_left = 20.0
+margin_top = 2.0
 margin_right = 86.0
-margin_bottom = 14.0
+margin_bottom = 8.0
+rect_min_size = Vector2( 0, 6 )
 size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+value = 100.0
+percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Debug" type="Control" parent="."]
+margin_left = 92.0
+margin_top = 44.0
+margin_right = 132.0
+margin_bottom = 84.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="CurrentHP" type="Label" parent="Debug"]
+margin_right = 30.0
+margin_bottom = 19.0
+custom_fonts/font = SubResource( 3 )
+text = "HP: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="value_changed" from="VBoxContainer/PanelContainer/HBoxContainer/HPProgressBar" to="Debug" method="_on_HPProgressBar_value_changed"]
