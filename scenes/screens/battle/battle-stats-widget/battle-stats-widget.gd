@@ -17,7 +17,7 @@ func setup(prd: PokemonResourceDynamic):
 	var poke_hp = prd.get_hp()
 	# TODO: current pokemon HP (eg: if the pokemon has battled and does not
 	# have full hps)
-	print(pokemon_name.text, " ", poke_hp)
+#	print(pokemon_name.text, " ", poke_hp)
 	hp_progress_bar.max_value = poke_hp
 	hp_progress_bar.value = poke_hp
 	$Debug.set_hp_text(poke_hp, poke_hp)
