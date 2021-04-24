@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/screens/battle/panels-font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scenes/screens/battle/panel-manager.gd" type="Script" id=2]
@@ -8,7 +8,8 @@
 [ext_resource path="res://assets/pokemon-sprites/back/1.png" type="Texture" id=6]
 [ext_resource path="res://assets/pokemon-sprites/12.png" type="Texture" id=7]
 [ext_resource path="res://scenes/screens/battle/battle-ref.png" type="Texture" id=8]
-[ext_resource path="res://scenes/screens/battle/combat-stats-widget/combat-stats-wdiget.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/screens/battle/battle-stats-widget/battle-stats-widget.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/screens/battle/moves-panel.gd" type="Script" id=10]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.843137, 0.87451, 0.878431, 1 )
@@ -208,6 +209,146 @@ custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
 text = "Run"
 uppercase = true
 
+[node name="MovesPanel" type="PanelContainer" parent="PanelManager"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1276.46
+margin_top = -185.27
+margin_right = -637.46
+margin_bottom = -1.27002
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelManager/MovesPanel"]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 627.0
+margin_bottom = 172.0
+custom_constants/margin_right = 6
+custom_constants/margin_top = 6
+custom_constants/margin_left = 6
+custom_constants/margin_bottom = 6
+
+[node name="GridContainer" type="GridContainer" parent="PanelManager/MovesPanel/MarginContainer"]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 608.0
+margin_bottom = 154.0
+columns = 2
+script = ExtResource( 10 )
+
+[node name="Move0" type="HBoxContainer" parent="PanelManager/MovesPanel/MarginContainer/GridContainer"]
+margin_right = 299.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelManager/MovesPanel/MarginContainer/GridContainer/Move0"]
+modulate = Color( 0.219608, 0.219608, 0.219608, 1 )
+margin_right = 50.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 50, 0 )
+texture = ExtResource( 3 )
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="PanelManager/MovesPanel/MarginContainer/GridContainer/Move0"]
+margin_left = 54.0
+margin_top = 13.0
+margin_right = 299.0
+margin_bottom = 59.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+text = "-"
+uppercase = true
+
+[node name="Move1" type="HBoxContainer" parent="PanelManager/MovesPanel/MarginContainer/GridContainer"]
+margin_left = 303.0
+margin_right = 602.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelManager/MovesPanel/MarginContainer/GridContainer/Move1"]
+modulate = Color( 0.219608, 0.219608, 0.219608, 1 )
+margin_right = 50.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 50, 0 )
+texture = ExtResource( 3 )
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="PanelManager/MovesPanel/MarginContainer/GridContainer/Move1"]
+margin_left = 54.0
+margin_top = 13.0
+margin_right = 299.0
+margin_bottom = 59.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+text = "-"
+uppercase = true
+
+[node name="Move2" type="HBoxContainer" parent="PanelManager/MovesPanel/MarginContainer/GridContainer"]
+margin_top = 76.0
+margin_right = 299.0
+margin_bottom = 148.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelManager/MovesPanel/MarginContainer/GridContainer/Move2"]
+modulate = Color( 0.219608, 0.219608, 0.219608, 1 )
+margin_right = 50.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 50, 0 )
+texture = ExtResource( 3 )
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="PanelManager/MovesPanel/MarginContainer/GridContainer/Move2"]
+margin_left = 54.0
+margin_top = 13.0
+margin_right = 299.0
+margin_bottom = 59.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+text = "-"
+uppercase = true
+
+[node name="Move3" type="HBoxContainer" parent="PanelManager/MovesPanel/MarginContainer/GridContainer"]
+margin_left = 303.0
+margin_top = 76.0
+margin_right = 602.0
+margin_bottom = 148.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelManager/MovesPanel/MarginContainer/GridContainer/Move3"]
+modulate = Color( 0.219608, 0.219608, 0.219608, 1 )
+margin_right = 50.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 50, 0 )
+texture = ExtResource( 3 )
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="PanelManager/MovesPanel/MarginContainer/GridContainer/Move3"]
+margin_left = 54.0
+margin_top = 13.0
+margin_right = 299.0
+margin_bottom = 59.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+text = "-"
+uppercase = true
+
 [node name="CombatWidgets" type="CanvasLayer" parent="."]
 
 [node name="OpponentWidget" parent="CombatWidgets" instance=ExtResource( 9 )]
@@ -231,4 +372,7 @@ texture = ExtResource( 6 )
 position = Vector2( 1017.79, 179.103 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 7 )
+
 [connection signal="action_selected" from="PanelManager/ActionSelectPanel/MarginContainer/GridContainer" to="PanelManager" method="_on_GridContainer_action_selected"]
+[connection signal="visibility_changed" from="PanelManager/MovesPanel" to="PanelManager/MovesPanel/MarginContainer/GridContainer" method="_on_MovesPanel_visibility_changed"]
+[connection signal="move_selected" from="PanelManager/MovesPanel/MarginContainer/GridContainer" to="PanelManager" method="_on_GridContainer_move_selected"]

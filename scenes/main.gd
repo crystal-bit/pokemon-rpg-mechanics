@@ -9,12 +9,19 @@ var save_file_dir = GameSave.get_save_dir_path()
 
 onready var current_pokemons = $PanelContainer/VBoxContainer/CurrentPokemons
 
+func print_moves():
+	for pokemon in game_save.captured_pokemons:
+		var p: PokemonResourceDynamic = pokemon
+		print(p.resource_name)
+		for m in p.move_set.current_moves:
+			print(m.power)
 
 func _init() -> void:
 	var f = File.new()
 	if f.file_exists(save_file_path):
 		print("loading savefile")
 		game_save = load_savefile()
+		print_moves()
 	else:
 		print("Creating save file")
 		game_save = create_savefile(save_file_dir)

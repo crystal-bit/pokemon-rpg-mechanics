@@ -19,15 +19,15 @@ func setup(data: PokemonResourceDynamic):
 
 
 func get_pokemon_resource_dynamic():
-	var prd = PokemonResourceDynamic.new()
-	prd.init({
+	var p = PokemonResourceDynamic.new()
+	p.init({
 		unique_id = unique_id,
 		pokemon_resource_id = int(poke_resource_id.text),
 		hp_ev = int(ev.text),
 		experience = int(experience.value),
 #		level = int(level.value),
 	})
-	return prd
+	return p
 
 
 func _on_Pokemons_pokemon_selected(poke_res) -> void:

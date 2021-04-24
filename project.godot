@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://resources/game-save.gd"
 }, {
+"base": "GridContainer",
+"class": "MovesPanel",
+"language": "GDScript",
+"path": "res://scenes/screens/battle/moves-panel.gd"
+}, {
 "base": "Node2D",
 "class": "Pokemon",
 "language": "GDScript",
@@ -46,6 +51,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "GameSave": "",
+"MovesPanel": "",
 "Pokemon": "",
 "PokemonMove": "",
 "PokemonMoveSet": "",
@@ -101,6 +107,7 @@ texture={
 quality/driver/driver_name="GLES2"
 quality/intended_usage/framebuffer_allocation=0
 quality/intended_usage/framebuffer_allocation.mobile=0
-quality/2d/use_pixel_snap=true
+2d/snapping/use_gpu_pixel_snap=true
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+quality/2d/use_pixel_snap=true

@@ -6,11 +6,9 @@ const PRODUCTION_SAVE_FILE_DIR = "user://player_data/"
 const SAVE_FILE_NAME = "save.tres"
 
 export var game_version: String = "1.0"
-# Array<PokemonResourceDynamic>
-export(Array) var captured_pokemons = []
+export(Array) var captured_pokemons = [] # Array<PokemonResourceDynamic>
 
 
-# TODO: refactor? Should this be here?
 func get_captured_pokemon(idx) -> PokemonResourceDynamic:
 	if captured_pokemons.size() == 0:
 		print("No captured pokemon")

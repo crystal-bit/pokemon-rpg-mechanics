@@ -2,17 +2,17 @@
 class_name PokemonMove
 extends Resource
 
-export(int) var id
-export(PokemonTypes.POKEMON_TYPES) var type
+export(int) var id = 0
+export(PokemonTypes.POKEMON_TYPES) var type = PokemonTypes.POKEMON_TYPES.NORMAL
 export(String) var name = ""
-var type2
-var pp
-var power
-var accuracy
-var target_id
-var damage_class_id
-var effect_id
-var effect_chance
+
+export(int) var pp = null
+export(int) var power: int = 0
+export(int) var accuracy: int = 0
+export(int) var target_id = 0
+export(int) var damage_class_id = 0
+export(int) var effect_id = 0
+export(int) var effect_chance = 0
 
 
 func _to_string() -> String:

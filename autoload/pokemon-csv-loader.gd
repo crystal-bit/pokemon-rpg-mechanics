@@ -50,19 +50,19 @@ func _load_moves_from_csv(csv_filepath):
 		if generation_id > 1:
 			continue
 
-		var el = PokemonMove.new()
+		var el: PokemonMove = PokemonMove.new()
 		el.id = int(line[0]) - 1
 		el.name = line[1]
 		var type_id = int(line[2])
 		el.type = PokemonTypes.get_type_by_id(type_id)
-		el.power = line[3] # nullable
-		el.pp = line[4]
-		el.accuracy = line[5]
+		el.power = int(line[3]) # nullable
+		el.pp = int(line[4])
+		el.accuracy = int(line[5])
 #		el.priority = line[6]
-		el.target_id = line[7]
-		el.damage_class_id = line[8]
-		el.effect_id = line[9]
-		el.effect_chance = line[10] # nullable
+		el.target_id = int(line[7])
+		el.damage_class_id = int(line[8])
+		el.effect_id = int(line[9])
+		el.effect_chance = int(line[10]) # nullable
 		_moves.push_back(el)
 		line_idx += 1
 	file.close()

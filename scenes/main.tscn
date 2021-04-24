@@ -138,7 +138,11 @@ custom_fonts/font = SubResource( 5 )
 text = "Pokemon loaded:
 Moves loaded: "
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="DebugPopup" parent="." instance=ExtResource( 5 )]
+
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_Button2_pressed"]

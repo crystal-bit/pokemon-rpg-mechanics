@@ -1,19 +1,11 @@
 class_name Pokemon
 extends Node2D
 
-# there are 2 kind of stats:
-# 1. static information (never changes)
-#    1. eg: base stats
-# 2. dynamic information (changes between pokemons)
-#    1. eg: effort values https://bulbapedia.bulbagarden.net/wiki/Effort_values
-#    2. eg: individual values https://bulbapedia.bulbagarden.net/wiki/Individual_values
-
 var pokemon_resource: PokemonResource
 var pokemon_resource_dynamic: PokemonResourceDynamic
 
 onready var panel = $PanelContainer
 onready var sprite = $Sprite
-
 
 func _ready() -> void:
 	position = Vector2(200, 200)
