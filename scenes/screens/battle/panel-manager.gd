@@ -18,7 +18,6 @@ func _ready():
 
 func set_state(new_state):
 	state = new_state
-
 	match state:
 		STATES.INFO:
 			pass
@@ -44,9 +43,8 @@ func _on_GridContainer_action_selected(action_string):
 
 func _unhandled_key_input(event: InputEventKey) -> void:
 	if state == STATES.MOVE_SELECT:
-		if event.scancode == KEY_ESCAPE:
+		if event.is_action_pressed("ui_cancel"):
 			set_state(STATES.ACTION_SELECT)
-
 
 
 func _on_GridContainer_move_selected(move: PokemonMove) -> void:

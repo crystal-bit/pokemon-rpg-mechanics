@@ -20,17 +20,17 @@ func _ready():
 func _unhandled_input(event):
 	if event is InputEventKey:
 		if event.pressed and !event.echo:
-			if event.scancode == KEY_S:
+			if event.is_action_pressed("ui_down"):
 #				if selected_action_id > 1:
 #					return
 				selected_action_id = clamp(selected_action_id + 2, 0, 3)
-			if event.scancode == KEY_W:
+			if event.is_action_pressed("ui_up"):
 				selected_action_id = clamp(selected_action_id - 2, 0, 3)
-			if event.scancode == KEY_A:
+			if event.is_action_pressed("ui_left"):
 				selected_action_id = clamp(selected_action_id - 1, 0, 3)
-			if event.scancode == KEY_D:
+			if event.is_action_pressed("ui_right"):
 				selected_action_id = clamp(selected_action_id + 1, 0, 3)
-			if event.scancode == KEY_SPACE:
+			if event.is_action_pressed("ui_accept"):
 				emit_signal("action_selected", get_current_action())
 			select_action_id(selected_action_id)
 

@@ -28,6 +28,7 @@ func _init() -> void:
 
 
 func _ready():
+	$VBoxContainer/Button.grab_focus()
 	for p in game_save.captured_pokemons:
 		p = p as PokemonResourceDynamic
 		var p_preview = poke_preview.instance()
