@@ -1,18 +1,29 @@
 # Pokemon RPG mechanics
 
+<div align="center">
+  <img width="75%" src="./assets/readme/creation-screen.png">
+  <p>
+    <small> <i>Pokemon creation screen </i></small>
+  </p>
+</div>
+
 ## Meccaniche da implementare
 
 - [ ] Database Pokemon Generazione I
   - [x] Tabella statistiche pokemon
   - [x] Tabella mosse
-  - [ ] ? Tabella associativa tra pokemon e mosse iniziali
-  - [ ] ? Tabella associativa tra pokemon e mosse da sbloccare per ogni livello (https://gamefaqs.gamespot.com/gameboy/367023-pokemon-red-version/faqs/5764)
   - [ ] ? Tabella evoluzioni: https://gamefaqs.gamespot.com/gameboy/367023-pokemon-red-version/faqs/5770
-- [ ] Salvataggio gioco
+- [x] Salvataggio gioco
   - [x] Salvataggio pokemon catturati
   - [ ] Salvataggio statistiche pokemon catturati (EV, IV, exp, mosse sbloccate, ...)
 - [ ] Combattimento
 - [ ] Leveling up
+
+Argomenti non affrontati:
+
+- Tabella associativa tra pokemon e mosse iniziali
+- Tabella associativa tra pokemon e mosse assegnabili
+- Tabella associativa tra pokemon e mosse da sbloccare per ogni livello (https://gamefaqs.gamespot.com/gameboy/367023-pokemon-red-version/faqs/5764)
 
 ## Argomenti
 
@@ -28,8 +39,8 @@
    1. Export risorse
    2. Modifica di una risorsa dall'inspector
    3. Side effects? Se una risorsa viene usata in posti diversi ed è la stessa
-   istanza, tutte le reference verranno aggiornate.
-   1. `func _to_string() -> String:` per migliore leggibilità
+      istanza, tutte le reference verranno aggiornate.
+   4. `func _to_string() -> String:` per migliore leggibilità
 5. Salvataggio dati
    1. ResourceSaver
    2. `res://` vs `user://` (+ riconoscimento modalità debug)
@@ -57,6 +68,7 @@ Si ha la (de)serializzazione dei dati già implementata in Godot.
 ## Documentazione e link utili
 
 Gameplay Video:
+
 - https://www.youtube.com/watch?v=UE9qsxyzZx4
 
 Save system:
@@ -81,7 +93,6 @@ Pokemon team builder:
 - https://play.pokemonshowdown.com/teambuilder
 
 ## Semplificazioni
-
 
 - Pokemon solo dalla prima generazione
 - Unico file di salvataggio
