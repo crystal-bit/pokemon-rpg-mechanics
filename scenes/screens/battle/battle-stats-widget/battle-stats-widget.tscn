@@ -41,8 +41,8 @@ font_data = ExtResource( 4 )
 [node name="BattleStatsWidget" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -1080.0
-margin_bottom = -663.0
+margin_right = -1280.0
+margin_bottom = -720.0
 rect_scale = Vector2( 2, 2 )
 script = ExtResource( 3 )
 __meta__ = {
@@ -56,9 +56,10 @@ scale = Vector2( 0.53502, 0.53502 )
 texture = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 200.0
-margin_bottom = 57.0
-color = Color( 0.654902, 0.65098, 0.596078, 1 )
+margin_right = 210.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 210, 64 )
+color = Color( 0.227451, 0.227451, 0.227451, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -162,4 +163,7 @@ text = "HP: "
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Tween" type="Tween" parent="."]
+
 [connection signal="value_changed" from="VBoxContainer/PanelContainer/HBoxContainer/HPProgressBar" to="Debug" method="_on_HPProgressBar_value_changed"]

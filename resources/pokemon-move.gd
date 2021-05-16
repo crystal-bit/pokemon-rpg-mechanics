@@ -14,6 +14,5 @@ export(int) var damage_class_id = 0
 export(int) var effect_id = 0
 export(int) var effect_chance = 0
 
-
 func _to_string() -> String:
 	return "%s" % [name]

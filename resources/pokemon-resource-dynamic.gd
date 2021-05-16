@@ -6,8 +6,7 @@ extends Resource
 export var pokemon_resource_id: int # used to load the correct PokemonResource
 export var unique_id: int # each captured pokemon will have its own unique id
 export var experience: int # current pokemon experience
-
-export var hp_ev: int
+export var current_hp = 0
 
 var evs = {
 	'hp': 0, # TODO: update this
@@ -30,12 +29,13 @@ func _init():
 	evs['special_defense'] = 19625
 	evs['speed'] = 24795
 
+
 func init(data):
 	unique_id = data.unique_id
 	pokemon_resource_id = data.pokemon_resource_id
-	hp_ev = data.hp_ev
 	evs['hp'] = data.hp_ev
 	experience = data.experience
+	current_hp = get_stat_hp() # FULL HP on creation
 	# move_set = create_default_moveset()
 
 
@@ -60,16 +60,6 @@ func _to_string() -> String:
 
 # https://bulbapedia.bulbagarden.net/wiki/Stat#In_Generations_I_and_II
 # https://www.dragonflycave.com/mechanics/stats
-func get_hp():
-	var iv = 0 # IV - NOT IMPLEMENTED
-	var ev = floor(ceil(sqrt(hp_ev)) / 4)
-	var hp = PokemonLoader.get_pokemon(pokemon_resource_id).hp as int
-	var level = get_level(experience)
-	var num = ((iv + hp) * 2 + ev) * level
-	var den = 100
-	return int(floor(num / den)) + level + 10
-
-
 func get_stat(stat: String) -> int:
 	assert(stat in evs.keys())
 	var iv = 0 # IV - NOT IMPLEMENTED
@@ -80,3 +70,18 @@ func get_stat(stat: String) -> int:
 	var num = ((iv + base_stat) * 2 + ev) * level
 	var den = 100
 	return int(floor(num / den)) + 5
+
+
+# HP stat is handled differently from other stats
+func get_stat_hp():
+	var iv = 0 # IV - NOT IMPLEMENTED
+	var ev = floor(ceil(sqrt(evs['hp'])) / 4)
+	var hp = PokemonLoader.get_pokemon(pokemon_resource_id).hp as int
+	var level = get_level(experience)
+	var num = ((iv + hp) * 2 + ev) * level
+	var den = 100
+	return int(floor(num / den)) + level + 10
+
+
+func get_pokemon_resource() -> PokemonResource:
+	return PokemonLoader.entries[pokemon_resource_id]

@@ -14,7 +14,7 @@ func setup(data: PokemonResourceDynamic):
 	header.text = "PokemonResourceDynamic #%d" % data.unique_id
 	unique_id = data.unique_id
 	poke_resource_id.text = str(data.pokemon_resource_id)
-	ev.text = str(data.hp_ev)
+	ev.text = str(data.evs['hp'])
 	experience.value = data.experience
 
 

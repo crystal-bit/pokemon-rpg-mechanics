@@ -5,12 +5,6 @@ onready var prd_panel := $MarginContainer/HBoxContainer/PokemonResourceDynamicPa
 onready var moves_panel := $MarginContainer/HBoxContainer/MovesPanel
 
 
-func _unhandled_input(event):
-	if event is InputEventKey:
-		if (event.scancode == KEY_ESCAPE or event.scancode == KEY_Q) and event.pressed:
-			get_tree().change_scene("res://scenes/main.tscn")
-
-
 func _on_Button_pressed():
 	save_pokemon()
 

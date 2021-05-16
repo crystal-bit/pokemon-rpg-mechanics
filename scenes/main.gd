@@ -9,19 +9,11 @@ var save_file_dir = GameSave.get_save_dir_path()
 
 onready var current_pokemons = $PanelContainer/VBoxContainer/CurrentPokemons
 
-func print_moves():
-	for pokemon in game_save.captured_pokemons:
-		var p: PokemonResourceDynamic = pokemon
-		print(p.resource_name)
-		for m in p.move_set.current_moves:
-			print(m.power)
-
 func _init() -> void:
 	var f = File.new()
 	if f.file_exists(save_file_path):
 		print("loading savefile")
 		game_save = load_savefile()
-		print_moves()
 	else:
 		print("Creating save file")
 		game_save = create_savefile(save_file_dir)
@@ -36,7 +28,7 @@ func _ready():
 		current_pokemons.add_child(p_preview)
 		p_preview.connect("mouse_entered", self, "_on_poke_preview_mouse_entered", [p])
 	$PanelContainer.set_anchors_and_margins_preset(Control.PRESET_CENTER)
-	$PanelContainer.rect_position.y += 70
+	$PanelContainer.rect_position.y += 120
 	$PanelContainer.rect_position.x = get_viewport().get_visible_rect().size.x / 2 - $PanelContainer.get_rect().size.x / 2
 
 
@@ -79,3 +71,11 @@ func _on_Button2_pressed():
 	var new_scene = load("res://scenes/screens/battle/battle.tscn")
 	Global.data['game-save'] = game_save
 	get_tree().change_scene_to(new_scene)
+
+
+func _on_Button3_pressed() -> void:
+	get_tree().quit()
+
+
+func _on_Button4_pressed() -> void:
+	get_tree().change_scene("res://scenes/screens/moves-list/moves-list.tscn")

@@ -1,9 +1,10 @@
 extends Node2D
+class_name Battle
 
 var opponent_poke: PokemonResourceDynamic
 var player_poke: PokemonResourceDynamic
 
-onready var moves_panel: MovesPanel = $PanelManager/MovesPanel/MarginContainer/GridContainer
+onready var moves_panel: MovesGrid = $PanelManager/MovesPanel/MarginContainer/MovesGrid
 
 func _ready():
 	var game_save = Global.data.get('game-save')

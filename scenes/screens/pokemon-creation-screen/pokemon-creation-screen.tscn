@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/screens/pokemon-creation-screen/dynamic_stats.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/screens/pokemon-creation-screen/moves-panel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/screens/pokemon-creation-screen/pokemon-creation-screen.gd" type="Script" id=3]
 [ext_resource path="res://scenes/screens/pokemon-creation-screen/pokemon-entries.gd" type="Script" id=4]
+[ext_resource path="res://scenes/objects/go-back/go-back.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/pokemon/debug_panel/debug_panel.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/screens/pokemon-creation-screen/StatsPanel.tscn" type="PackedScene" id=9]
 
@@ -96,6 +97,8 @@ rect_min_size = Vector2( 200, 200 )
 size_flags_horizontal = 10
 size_flags_vertical = 10
 
-[connection signal="pokemon_selected" from="MarginContainer/HBoxContainer/Pokemons" to="MarginContainer/HBoxContainer/PokemonResourceDynamicPanel" method="_on_Pokemons_pokemon_selected"]
+[node name="GoBack" parent="." instance=ExtResource( 5 )]
+
 [connection signal="pokemon_selected" from="MarginContainer/HBoxContainer/Pokemons" to="MarginContainer/HBoxContainer/PokemonResourcePanel" method="_on_Pokemons_pokemon_selected"]
+[connection signal="pokemon_selected" from="MarginContainer/HBoxContainer/Pokemons" to="MarginContainer/HBoxContainer/PokemonResourceDynamicPanel" method="_on_Pokemons_pokemon_selected"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Button" to="." method="_on_Button_pressed"]

@@ -9,12 +9,22 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "Battle",
+"language": "GDScript",
+"path": "res://scenes/screens/battle/battle.gd"
+}, {
 "base": "Resource",
 "class": "GameSave",
 "language": "GDScript",
 "path": "res://resources/game-save.gd"
 }, {
 "base": "GridContainer",
+"class": "MovesGrid",
+"language": "GDScript",
+"path": "res://scenes/screens/battle/moves-grid.gd"
+}, {
+"base": "PanelContainer",
 "class": "MovesPanel",
 "language": "GDScript",
 "path": "res://scenes/screens/battle/moves-panel.gd"
@@ -50,7 +60,9 @@ _global_script_classes=[ {
 "path": "res://resources/pokemon-types.gd"
 } ]
 _global_script_class_icons={
+"Battle": "",
 "GameSave": "",
+"MovesGrid": "",
 "MovesPanel": "",
 "Pokemon": "",
 "PokemonMove": "",
