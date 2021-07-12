@@ -7,9 +7,9 @@ var player_poke: PokemonResourceDynamic
 onready var moves_panel: MovesGrid = $PanelManager/MovesPanel/MarginContainer/MovesGrid
 
 func _ready():
-	var game_save = Global.data.get('game-save')
+	var game_save = Global.game_save
 	var player_pokemon = game_save.captured_pokemons[game_save.captured_pokemons.size() - 1]
-	setup(player_pokemon, game_save.captured_pokemons[1])
+	setup(player_pokemon, game_save.captured_pokemons[game_save.captured_pokemons.size() - 2])
 	$CombatWidgets/PlayerWidget.setup(player_poke)
 	$CombatWidgets/OpponentWidget.setup(opponent_poke)
 

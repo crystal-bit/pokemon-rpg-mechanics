@@ -31,13 +31,13 @@ func _on_btn_pressed(btn: Button):
 		selected_moves += 1
 
 
-func get_selected_moves():
-	var moves = []
+func get_selected_moves() -> PokemonMoveSet:
+	var move_set = PokemonMoveSet.new()
 	for b in vbox.get_children():
 		if not b is Button:
 			continue
 		if not b.toggle_mode:
 			continue
 		var m: PokemonMove = b.get_meta('pokemon_move')
-		moves.append(m)
-	return moves
+		move_set.current_moves.append(m)
+	return move_set
