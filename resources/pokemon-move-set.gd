@@ -1,7 +1,7 @@
 class_name PokemonMoveSet
 extends Resource
 
-export(Array) var current_moves = []
+export(Array) var current_moves = [] # array[PokemonMove]
 
 
 func _init():
