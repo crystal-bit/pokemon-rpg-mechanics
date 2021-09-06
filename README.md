@@ -9,6 +9,30 @@
 
 Testing project made to prepare content for the tutorial series about [Godot RPG mechanics](https://youtube.com/playlist?list=PLaCq3HqKQR6pDwuJiPJDKxJjpcPwYV7gR)
 
+## Discuss the project on Discord!
+
+![Discord](https://img.shields.io/discord/686600734636376102?logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)
+
+https://discord.gg/SA6S2Db
+
+## Semplifications
+
+The battle system is a big semplification from the official one. The main objective of this project was exploring GDScript advanced features and not to create a replica of the Pokemon battle system.
+
+Some semplification:
+
+- Only 1st gen Pokemons
+- Only 1 save file
+- All pokemons use the Medium fast experience curve
+
+## Missing features
+
+- Level up (methods and UI)
+- Friendship
+- Nature
+- AI
+- a lot of other details
+
 ## Useful links
 
 Gameplay Video:
@@ -35,22 +59,3 @@ Godot `Resource`:
 - https://gamefaqs.gamespot.com/gameboy/367023-pokemon-red-version/faqs/5770
 - https://github.com/lgreski/pokemonData
 - https://www.kaggle.com/abcsds/pokemon
-
-
-## Semplifications
-
-The battle system is a big semplification from the official one. The main objective of this project was exploring GDScript advanced features and not to create a replica of the Pokemon battle system.
-
-Some semplification:
-
-- Only 1st gen Pokemons
-- Only 1 save file
-- All pokemons use the Medium fast experience curve
-
-## Missing features
-
-- Level up (methods and UI)
-- Friendship
-- Nature
-- AI
-- a lot of other details
