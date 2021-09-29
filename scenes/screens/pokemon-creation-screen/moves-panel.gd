@@ -4,6 +4,9 @@ onready var vbox := $ScrollContainer/VBoxContainer
 onready var warning_text := $ScrollContainer/VBoxContainer/Warning
 var selected_moves = 0
 
+signal move_selected
+signal move_deselected
+
 
 func _ready():
 	for m in PokemonLoader.moves:
@@ -13,12 +16,12 @@ func _ready():
 		btn.set_meta('pokemon_move', m)
 		vbox.add_child(btn)
 
-
 func _on_btn_pressed(btn: Button):
 	warning_text.hide()
 	if btn.toggle_mode:
 		# deselect
 		selected_moves -= 1
+		emit_signal("move_deselected", btn)
 		btn.toggle_mode = !btn.toggle_mode
 		btn.pressed = !btn.pressed
 	else:
@@ -29,6 +32,7 @@ func _on_btn_pressed(btn: Button):
 		btn.toggle_mode = !btn.toggle_mode
 		btn.pressed = !btn.pressed
 		selected_moves += 1
+		emit_signal("move_selected", btn)
 
 
 func get_selected_moves() -> PokemonMoveSet:

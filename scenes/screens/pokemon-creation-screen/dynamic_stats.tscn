@@ -122,6 +122,7 @@ margin_right = 188.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 74, 0 )
 size_flags_horizontal = 10
+
 [connection signal="value_changed" from="VBoxContainer/Exp/HSlider" to="VBoxContainer/Exp value" method="_on_HSlider_value_changed"]
 [connection signal="experience_changed" from="VBoxContainer/Exp value" to="VBoxContainer/Level" method="_on_Exp_value_experience_changed"]
 [connection signal="experience_changed" from="VBoxContainer/Exp value" to="VBoxContainer/Exp" method="_on_Exp_value_experience_changed"]
