@@ -1,6 +1,6 @@
 extends Node
 
-var poke_preview = preload("res://scenes/screens/main/poke-preview.tscn")
+var poke_preview := preload("res://scenes/screens/main/poke-preview.tscn")
 
 onready var current_pokemons = $PanelContainer/VBoxContainer/CurrentPokemons
 
@@ -10,15 +10,23 @@ func _ready():
 		p = p as PokemonResourceDynamic
 		var p_preview = poke_preview.instance()
 		p_preview.setup(p)
+		p_preview.connect("delete_pressed", self, "on_delete_pressed")
 		current_pokemons.add_child(p_preview)
-		p_preview.connect("mouse_entered", self, "_on_poke_preview_mouse_entered", [p])
+#		p_preview.connect("mouse_entered", self, "_on_poke_preview_mouse_entered", [p])
 	$PanelContainer.set_anchors_and_margins_preset(Control.PRESET_CENTER)
 	$PanelContainer.rect_position.y += 120
 	$PanelContainer.rect_position.x = get_viewport().get_visible_rect().size.x / 2 - $PanelContainer.get_rect().size.x / 2
 
 
-func _on_poke_preview_mouse_entered(prd: PokemonResourceDynamic):
-	$DebugPopup.update_labels(prd)
+func on_delete_pressed(poke: PokemonResourceDynamic):
+	Global.game_save.captured_pokemons.erase(poke)
+	Global.game_save.save()
+	for node in current_pokemons.get_children():
+		if node.poke_res_d == poke:
+			current_pokemons.remove_child(node)
+
+#func _on_poke_preview_mouse_entered(prd: PokemonResourceDynamic):
+#	$DebugPopup.update_labels(prd)
 
 
 func _on_Button_pressed():
@@ -28,7 +36,7 @@ func _on_Button_pressed():
 func _on_Button2_pressed():
 	var new_scene = load("res://scenes/screens/battle/battle.tscn")
 	get_tree().change_scene_to(new_scene)
-
+	get_tree().root
 
 func _on_Button3_pressed() -> void:
 	get_tree().quit()

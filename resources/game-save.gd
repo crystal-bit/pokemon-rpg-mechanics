@@ -1,8 +1,7 @@
 class_name GameSave
 extends Resource
 
-const DEBUG_SAVE_FILE_DIR = "res://player_data/"
-const PRODUCTION_SAVE_FILE_DIR = "user://player_data/"
+const PRODUCTION_SAVE_FILE_DIR = "user://"
 const SAVE_FILE_NAME = "save.tres"
 
 export var game_version: String = "1.0"
@@ -21,15 +20,11 @@ func get_captured_pokemon(idx) -> PokemonResourceDynamic:
 
 
 static func get_save_dir_path() -> String:
-	if OS.is_debug_build():
-		return DEBUG_SAVE_FILE_DIR
-	else:
-		return PRODUCTION_SAVE_FILE_DIR
+	return PRODUCTION_SAVE_FILE_DIR
 
 
 static func get_save_file_path() -> String:
-	if OS.is_debug_build():
-		return DEBUG_SAVE_FILE_DIR.plus_file(SAVE_FILE_NAME)
-	else:
-		return PRODUCTION_SAVE_FILE_DIR.plus_file(SAVE_FILE_NAME)
+	return PRODUCTION_SAVE_FILE_DIR.plus_file(SAVE_FILE_NAME)
 
+func save():
+	return ResourceSaver.save(get_save_file_path(), self)

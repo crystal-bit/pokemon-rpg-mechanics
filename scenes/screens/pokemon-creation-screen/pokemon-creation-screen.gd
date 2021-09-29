@@ -13,7 +13,8 @@ func _on_Button_pressed():
 
 func save_pokemon(data):
 	Global.game_save.captured_pokemons.push_back(data)
-	var res = ResourceSaver.save("res://player_data/save.tres", Global.game_save)
+
+	var res = Global.game_save.save()
 	if res != OK:
 		print("Error ", res, " while saving resource")
 	else:

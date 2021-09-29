@@ -8,6 +8,8 @@ var data = {
 
 }
 
+var scene_params = {}
+
 func _init() -> void:
 	var f = File.new()
 	if f.file_exists(save_file_path):

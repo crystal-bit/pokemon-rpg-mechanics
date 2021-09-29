@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/screens/main/poke-preview.gd" type="Script" id=1]
 [ext_resource path="res://assets/pokemon-sprites/1.png" type="Texture" id=2]
+[ext_resource path="res://assets/path113.png" type="Texture" id=3]
 
 [node name="PokePreview" type="MarginContainer"]
 margin_right = 39.0
@@ -32,3 +33,28 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Control" type="Control" parent="."]
+margin_right = 80.0
+margin_bottom = 98.0
+mouse_filter = 1
+
+[node name="DeleteButton" type="TextureButton" parent="Control"]
+modulate = Color( 0.905882, 0.411765, 0.411765, 1 )
+margin_left = 60.1357
+margin_top = 3.11815
+margin_right = 78.1357
+margin_bottom = 22.1181
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="mouse_entered" from="." to="." method="_on_PokePreview_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_PokePreview_mouse_exited"]
+[connection signal="pressed" from="Control/DeleteButton" to="." method="_on_DeleteButton_pressed"]
