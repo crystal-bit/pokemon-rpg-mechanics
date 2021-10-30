@@ -15,7 +15,7 @@ Testing project made to prepare content for the tutorial series about [Godot RPG
 
 https://discord.gg/SA6S2Db
 
-## Semplifications
+## Simplifications
 
 The battle system is a big semplification from the official one. The main objective of this project was exploring GDScript advanced features and not to create a replica of the Pokemon battle system.
 
