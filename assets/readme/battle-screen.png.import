@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/creation-screen.png-40e46b1464dcda29fc0fceb3a4587b85.stex"
+path="res://.import/battle-screen.png-45bb4532159cf79aea558929e527379e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/readme/creation-screen.png"
-dest_files=[ "res://.import/creation-screen.png-40e46b1464dcda29fc0fceb3a4587b85.stex" ]
+source_file="res://assets/readme/battle-screen.png"
+dest_files=[ "res://.import/battle-screen.png-45bb4532159cf79aea558929e527379e.stex" ]
 
 [params]
 
