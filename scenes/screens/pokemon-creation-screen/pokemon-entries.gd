@@ -9,11 +9,9 @@ signal pokemon_selected()
 
 func _ready():
 	for poke in PokemonLoader.entries:
-		var poke_entry = create_pokemon_entry()
-		poke_entry.connect('ready', self, '_setup', [poke_entry, poke])
-		poke_entry.connect('pokemon_entry_pressed', self, '_on_pokemon_entry_pressed')
-		poke_entry.connect('pokemon_entry_hovered', self, '_on_pokemon_entry_hovered')
-		vbox.add_child(poke_entry)
+		var pokemon_entry = create_pokemon_entry(poke)
+		vbox.add_child(pokemon_entry)
+	vbox.get_children()[0].get_node("Button").grab_focus()
 
 
 func _on_pokemon_entry_pressed(entry):
@@ -28,6 +26,10 @@ func _setup(entry, poke_resource):
 	entry.setup(poke_resource)
 
 
-func create_pokemon_entry():
-	return poke_entry.instance()
+func create_pokemon_entry(poke: PokemonResource):
+	var p = poke_entry.instance()
+	p.connect('ready', self, '_setup', [p, poke])
+	p.connect('pokemon_entry_pressed', self, '_on_pokemon_entry_pressed')
+	p.connect('pokemon_entry_hovered', self, '_on_pokemon_entry_hovered')
+	return p
 

@@ -78,8 +78,8 @@ margin_top = 16.0
 margin_right = 1240.0
 margin_bottom = 144.0
 size_flags_vertical = 7
-custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+custom_fonts/font = ExtResource( 1 )
 autowrap = true
 
 [node name="ActionSelectPanel" type="PanelContainer" parent="PanelManager"]
@@ -136,8 +136,8 @@ margin_right = 299.0
 margin_bottom = 59.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+custom_fonts/font = ExtResource( 1 )
 text = "Fight"
 uppercase = true
 
@@ -164,8 +164,8 @@ margin_right = 299.0
 margin_bottom = 59.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+custom_fonts/font = ExtResource( 1 )
 text = "Bag"
 uppercase = true
 
@@ -192,8 +192,8 @@ margin_right = 299.0
 margin_bottom = 59.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+custom_fonts/font = ExtResource( 1 )
 text = "Pokemon"
 uppercase = true
 
@@ -220,8 +220,8 @@ margin_right = 299.0
 margin_bottom = 59.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+custom_fonts/font = ExtResource( 1 )
 text = "Run"
 uppercase = true
 
@@ -279,8 +279,8 @@ margin_right = 299.0
 margin_bottom = 59.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+custom_fonts/font = ExtResource( 1 )
 text = "-"
 uppercase = true
 
@@ -306,8 +306,8 @@ margin_right = 299.0
 margin_bottom = 59.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+custom_fonts/font = ExtResource( 1 )
 text = "-"
 uppercase = true
 
@@ -333,8 +333,8 @@ margin_right = 299.0
 margin_bottom = 59.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+custom_fonts/font = ExtResource( 1 )
 text = "-"
 uppercase = true
 
@@ -361,8 +361,8 @@ margin_right = 299.0
 margin_bottom = 59.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+custom_fonts/font = ExtResource( 1 )
 text = "-"
 uppercase = true
 
@@ -401,7 +401,7 @@ texture = ExtResource( 7 )
 [connection signal="move_decided" from="BattleController/AI" to="BattleController" method="_on_AI_move_decided"]
 [connection signal="visibility_changed" from="PanelManager/ActionSelectPanel" to="PanelManager/ActionSelectPanel" method="_on_ActionSelectPanel_visibility_changed"]
 [connection signal="action_selected" from="PanelManager/ActionSelectPanel/MarginContainer/GridContainer" to="PanelManager" method="_on_GridContainer_action_selected"]
-[connection signal="move_selected" from="PanelManager/MovesPanel" to="PanelManager" method="_on_MovesPanel_move_selected"]
 [connection signal="move_selected" from="PanelManager/MovesPanel" to="BattleController" method="_on_MovesPanel_move_selected"]
+[connection signal="move_selected" from="PanelManager/MovesPanel" to="PanelManager" method="_on_MovesPanel_move_selected"]
 [connection signal="visibility_changed" from="PanelManager/MovesPanel" to="PanelManager/MovesPanel/MarginContainer/MovesGrid" method="_on_MovesPanel_visibility_changed"]
 [connection signal="move_selected" from="PanelManager/MovesPanel/MarginContainer/MovesGrid" to="PanelManager/MovesPanel" method="_on_MovesGrid_move_selected"]

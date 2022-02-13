@@ -25,20 +25,20 @@ func on_delete_pressed(poke: PokemonResourceDynamic):
 		if node.poke_res_d == poke:
 			current_pokemons.remove_child(node)
 
-#func _on_poke_preview_mouse_entered(prd: PokemonResourceDynamic):
-#	$DebugPopup.update_labels(prd)
-
 
 func _on_Button_pressed():
 	get_tree().change_scene("res://scenes/screens/pokemon-creation-screen/pokemon-creation-screen.tscn")
 
 
 func _on_Button2_pressed():
-	var new_scene = load("res://scenes/screens/battle/battle.tscn")
-	get_tree().change_scene_to(new_scene)
-	get_tree().root
+	if len(Global.game_save.captured_pokemons) < 2:
+		OS.alert('You need to create at least 2 pokemons to start a battle')
+	else:
+		var new_scene = load("res://scenes/screens/battle/battle.tscn")
+		get_tree().change_scene_to(new_scene)
 
-func _on_Button3_pressed() -> void:
+
+func _on_Button3_pressed():
 	get_tree().quit()
 
 
